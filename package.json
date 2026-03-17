@@ -1,7 +1,7 @@
 {
   "name": "",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,5 +10,8 @@
   },
   "dependencies": {
     "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.98.0"
   }
 }

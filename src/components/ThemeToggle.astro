@@ -1,0 +1,52 @@
+---
+// ThemeToggle – The toggle for light-/system-/darkmode.
+// No frontmatter needed.
+---
+
+<div class="theme-toggle" role="group" aria-label="Theme preference">
+  <button data-theme-value="light" aria-label="Light theme">☀︎</button>
+  <button data-theme-value="system" aria-label="System theme">◐</button>
+  <button data-theme-value="dark" aria-label="Dark theme">☾</button>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-theme-value]');
+
+  function getStored(): string {
+    return localStorage.getItem('theme') ?? 'system';
+  }
+
+  function applyTheme(value: string) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const resolved = value === 'system' ? (prefersDark ? 'dark' : 'light') : value;
+    document.documentElement.setAttribute('data-theme', resolved);
+  }
+
+  function setActive(value: string) {
+    buttons.forEach(btn => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.themeValue === value));
+    });
+  }
+
+  function handleSystemChange(e: MediaQueryListEvent) {
+    if (getStored() === 'system') {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    }
+  }
+
+  // Init
+  const initial = getStored();
+  setActive(initial);
+
+  // System preference listener — only acts when mode is 'system'
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleSystemChange);
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const value = btn.dataset.themeValue!;
+      localStorage.setItem('theme', value);
+      applyTheme(value);
+      setActive(value);
+    });
+  });
+</script>

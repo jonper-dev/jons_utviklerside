@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string;
+  description?: string; // Handy to have for meta tags.
+}
+
+const { title, description = "Jons utviklerside" } = Astro.props;
+const siteName = "Jons utviklerhjørne";
+const fullTitle = `${siteName} – ${title}`;
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/prosjekter", label: "Prosjekt" },
+  { href: "/kontakt", label: "Kontakt" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <!-- <link rel="icon" href="/favicon.ico" /> -->
+    <title>{fullTitle}</title>
+
+    --- // BaseLayout.astro ---
+    <!-- Theme-script must be inline, before stylesheets, to prevent flash. -Jon -->
+    <script is:inline>
+      (function () {
+        // Checking local storage or system preference.
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        if (
+          stored === "dark" ||
+          ((stored === "system" || !stored) && prefersDark)
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <slot name="head" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <span class="site-name">{siteName}</span>
+        <span class="page-name"> – {title}</span>
+      </h1>
+      <nav>
+        <ul>
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={
+                    Astro.url.pathname === link.href ? "page" : undefined
+                  }
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </header>
+    <slot />
+  </body>
+</html>
