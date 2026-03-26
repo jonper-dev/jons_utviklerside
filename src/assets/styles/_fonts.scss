@@ -1,0 +1,13 @@
+// Font family stacks
+// Fontsource handles @font-face, these are the CSS variable definitions
+// and fallback stacks for resilience
+
+$font-heading:  'DM Sans', system-ui, -apple-system, sans-serif;
+$font-body:     'Lora', Georgia, 'Times New Roman', serif;
+$font-mono:     'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+:root {
+  --font-heading: #{$font-heading};
+  --font-body:    #{$font-body};
+  --font-mono:    #{$font-mono};
+}

@@ -1,0 +1,46 @@
+---
+// ContactInfo – The contact information and related reveal-script.
+// Includes reveal-functionality to avoid scrapers, etc.
+---
+
+<address>
+  <ul>
+    <li id="contact-email">
+      <span>Email: <button data-contact="email">Show email</button></span>
+    </li>
+    <li id="contact-phone">
+      <span>Phone: <button data-contact="phone">Show phone</button></span>
+    </li>
+    <li>
+      <span>GitHub: <a href="https://github.com/jonper-dev" rel="me">jonper-dev</a></span>
+    </li>
+  </ul>
+</address>
+
+<script>
+  const contacts: Record<string, { href: string; label: string }> = {
+    email: {
+    // Splitting the information defeats naive regex scrapers.
+      href: 'mailto:' + ['jpervik', '@', 'gmail', '.com'].join(''),
+      label: ['jpervik', '@', 'gmail', '.com'].join(''),
+    },
+    phone: {
+      href: 'tel:' + ['+47', '48', '27', '05', '23'].join(''),
+      label: ['+47', '48', '27', '05', '23'].join(' '), // The label-number has spaces for readability. – Jon
+    },
+  };
+
+  document.querySelectorAll<HTMLButtonElement>('[data-contact]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.contact!;
+      const contact = contacts[key];
+      if (!contact) return;
+
+      const a = document.createElement('a');
+      a.href = contact.href;
+      a.textContent = contact.label;
+
+      btn.parentElement!.replaceChild(a, btn);
+    });
+  });
+</script>

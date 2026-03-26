@@ -1,0 +1,215 @@
+// ##############################
+// ### SCSS-modules to import ###
+// ##############################
+// Font and type imports
+@use 'fonts';
+@use 'typography';
+
+// Animation imports
+@use 'hero';
+
+// Other imports
+// @use 'reset';
+// @use 'tokens';
+
+
+
+// ###########################################
+// ### Color variables / Token definitions ###
+// ###########################################
+$dark-background:  #1e1e1e;
+$dark-text:        #faebd7; // Antiquewhite as hex, more explicit.
+$dark-surface:     #2a2a2a; // E.g. cards, code blocks.
+$dark-accent:      #7aa2f7;
+$dark-muted:       #888888;
+
+$light-background: #faebd7; // Antiquewhite as hex, more explicit.
+$light-text:       #111111;
+$light-surface:    #f0e6d3;
+$light-accent:     #2563eb;
+$light-muted:      #676767;
+
+
+
+// ##########################################
+// ### Theme maps → CSS custom properties ###
+// ##########################################
+[data-theme="dark"] {
+  --color-background: #{$dark-background};
+  --color-text:       #{$dark-text};
+  --color-surface:    #{$dark-surface};
+  --color-accent:     #{$dark-accent};
+  --color-muted:      #{$dark-muted};
+}
+
+[data-theme="light"] {
+  --color-background: #{$light-background};
+  --color-text:       #{$light-text};
+  --color-surface:    #{$light-surface};
+  --color-accent:     #{$light-accent};
+  --color-muted:      #{$light-muted};
+}
+
+
+
+// ##################
+// ### Base reset ###
+// ##################
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+// ###################
+// ### Base styles ###
+// ###################
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+button {
+  // Buttons use the opposite color scheme from the rest of the page in regards to darkmode/lightmode. – Jon
+  background-color: var(--color-text);
+  color: var(--color-background);
+
+  border-radius: 6px;
+  padding: 2px;
+  text-align: center;
+}
+
+// For the header as handled in "BaseLayout". This header is applied to all pages via that layout.
+header {
+  border-bottom: 1px solid var(--color-text);
+  margin: 0 auto;
+  padding-bottom: 20px;
+  max-width: 2400px;
+  width: 92%;
+
+  nav {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 80%;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      max-width: 1000px;
+      width: 80%;
+
+      li {
+        display: inline;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  }
+}
+
+main, article, section {
+    margin: 0 auto;
+}
+
+// Standard image handling to keep them within their parent-element.
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+// ##############
+// ### Layout ###
+// ##############
+// Flex-layouts for large boxes.
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  // padding: 1rem;
+  width: 96%;
+}
+
+article p, section p, .hero-section {
+  margin: 0 auto;
+}
+
+article {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1em;
+  width: 98%;
+
+  // For letting large headers fill up their relevant semantic parent-box. – Jon
+  h1, h2, h3 {
+    width: 100%;
+  }
+}
+
+.intro-article {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  section {
+    text-align: left;
+    width: 98%;
+  }
+}
+
+.projects-article {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.content-column {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 72ch;
+
+  // BEM-nesting for subvariants/modified variants of this class. – Jon
+  &--wide {
+    max-width: 120ch; // Could also use px/rem value for images.
+  }
+
+  &--full {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+// Text layout specifics
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-block-end: 0.5em;
+  margin-top: 8px;
+  text-align: center;
+}
+
+p, pre {
+  margin-block-end: 1em;
+  // max-width: 72ch;
+}
+
+address {
+  ul {
+    list-style: none;
+    padding-top: 4px;
+  }
+}

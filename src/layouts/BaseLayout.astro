@@ -1,4 +1,18 @@
 ---
+// BaseLayout.astro
+// Imports at the BaseLayout level are applied for imports that are reused on every page. – Jon
+import "../assets/styles/global.css";
+import "../components/ThemeToggle.astro"
+
+// Font imports
+import '@fontsource/dm-sans/400.css';         // Regular (header-font)
+import '@fontsource/dm-sans/500.css';         // Medium, useful for navigation/labels
+import '@fontsource/dm-sans/700.css';         // Bold, headings
+import '@fontsource/lora/400.css';            // Regular (body-font)
+import '@fontsource/lora/400-italic.css';     // Italic, important for body serif
+import '@fontsource/lora/600.css';            // Semibold, for occasional emphasis
+import '@fontsource/jetbrains-mono/400.css';  // Regular is enough for code
+
 interface Props {
   title: string;
   description?: string; // Handy to have for meta tags.
@@ -24,7 +38,6 @@ const navLinks = [
     <!-- <link rel="icon" href="/favicon.ico" /> -->
     <title>{fullTitle}</title>
 
-    --- // BaseLayout.astro ---
     <!-- Theme-script must be inline, before stylesheets, to prevent flash. -Jon -->
     <script is:inline>
       (function () {

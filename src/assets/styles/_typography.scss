@@ -1,0 +1,26 @@
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+// Slightly lighter weight for smaller headings
+h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em; // For this em not rem is used, which scales relative to surrounding text.
+}
+
+// Lora italic is worth using deliberately. 
+em, cite {
+  font-style: italic;
+}
