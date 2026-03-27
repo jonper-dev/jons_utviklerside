@@ -1,3 +1,19 @@
+[data-theme=dark] {
+  --color-background: #1e1e1e;
+  --color-text: #faebd7;
+  --color-surface: #2a2a2a;
+  --color-accent: #7aa2f7;
+  --color-muted: #888888;
+}
+
+[data-theme=light] {
+  --color-background: #faebd7;
+  --color-text: #111111;
+  --color-surface: #f0e6d3;
+  --color-accent: #2563eb;
+  --color-muted: #676767;
+}
+
 :root {
   --font-heading: DM Sans, system-ui, -apple-system, sans-serif;
   --font-body: Lora, Georgia, Times New Roman, serif;
@@ -54,22 +70,6 @@ em, cite {
     opacity: 0;
   }
 }
-[data-theme=dark] {
-  --color-background: #1e1e1e;
-  --color-text: #faebd7;
-  --color-surface: #2a2a2a;
-  --color-accent: #7aa2f7;
-  --color-muted: #888888;
-}
-
-[data-theme=light] {
-  --color-background: #faebd7;
-  --color-text: #111111;
-  --color-surface: #f0e6d3;
-  --color-accent: #2563eb;
-  --color-muted: #676767;
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -96,6 +96,16 @@ button {
   text-align: center;
 }
 
+.theme-toggle {
+  text-align: end;
+}
+.theme-toggle button {
+  font-size: medium;
+  padding-bottom: 4px;
+  max-width: 36px;
+  width: 10%;
+}
+
 header {
   border-bottom: 1px solid var(--color-text);
   margin: 0 auto;
@@ -107,6 +117,7 @@ header nav {
   margin: 0 auto;
   max-width: 800px;
   width: 80%;
+  padding-bottom: 12px;
 }
 header nav ul {
   display: flex;

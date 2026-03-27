@@ -1,6 +1,9 @@
 // ##############################
 // ### SCSS-modules to import ###
 // ##############################
+// Colors and color variables
+@use 'colors';
+
 // Font and type imports
 @use 'fonts';
 @use 'typography';
@@ -11,44 +14,6 @@
 // Other imports
 // @use 'reset';
 // @use 'tokens';
-
-
-
-// ###########################################
-// ### Color variables / Token definitions ###
-// ###########################################
-$dark-background:  #1e1e1e;
-$dark-text:        #faebd7; // Antiquewhite as hex, more explicit.
-$dark-surface:     #2a2a2a; // E.g. cards, code blocks.
-$dark-accent:      #7aa2f7;
-$dark-muted:       #888888;
-
-$light-background: #faebd7; // Antiquewhite as hex, more explicit.
-$light-text:       #111111;
-$light-surface:    #f0e6d3;
-$light-accent:     #2563eb;
-$light-muted:      #676767;
-
-
-
-// ##########################################
-// ### Theme maps → CSS custom properties ###
-// ##########################################
-[data-theme="dark"] {
-  --color-background: #{$dark-background};
-  --color-text:       #{$dark-text};
-  --color-surface:    #{$dark-surface};
-  --color-accent:     #{$dark-accent};
-  --color-muted:      #{$dark-muted};
-}
-
-[data-theme="light"] {
-  --color-background: #{$light-background};
-  --color-text:       #{$light-text};
-  --color-surface:    #{$light-surface};
-  --color-accent:     #{$light-accent};
-  --color-muted:      #{$light-muted};
-}
 
 
 
@@ -78,6 +43,7 @@ body {
   line-height: 1.6;
 }
 
+// Buttons and toggles
 button {
   // Buttons use the opposite color scheme from the rest of the page in regards to darkmode/lightmode. – Jon
   background-color: var(--color-text);
@@ -86,6 +52,17 @@ button {
   border-radius: 6px;
   padding: 2px;
   text-align: center;
+}
+
+.theme-toggle {
+  text-align: end;          // Sends the button(s) to the right side, which is the common location on websites.
+
+  button {
+      font-size: medium;    // Slightly larger for readability.
+      padding-bottom: 4px;  // Aligns icons to the middle in the up–down-direction.
+      max-width: 36px;
+      width: 10%;
+  }
 }
 
 // For the header as handled in "BaseLayout". This header is applied to all pages via that layout.
@@ -100,6 +77,7 @@ header {
     margin: 0 auto;
     max-width: 800px;
     width: 80%;
+    padding-bottom: 12px;
 
     ul {
       display: flex;

@@ -2,7 +2,7 @@
 // BaseLayout.astro
 // Imports at the BaseLayout level are applied for imports that are reused on every page. – Jon
 import "../assets/styles/global.css";
-import "../components/ThemeToggle.astro"
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 // Font imports
 import '@fontsource/dm-sans/400.css';         // Regular (header-font)
@@ -23,7 +23,7 @@ const siteName = "Jons utviklerhjørne";
 const fullTitle = `${siteName} – ${title}`;
 
 const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Hjem" },
   { href: "/prosjekter", label: "Prosjekt" },
   { href: "/kontakt", label: "Kontakt" },
 ];
@@ -84,6 +84,7 @@ const navLinks = [
           }
         </ul>
       </nav>
+      <ThemeToggle />
     </header>
     <slot />
   </body>
