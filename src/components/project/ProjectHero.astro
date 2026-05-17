@@ -1,0 +1,20 @@
+---
+// Static hero section for individual project pages.
+// Displays title, tech stack tags and summary at the top of the page.
+interface Props {
+  title: string;
+  summary: string;
+  tech: string[];
+}
+const { title, summary, tech } = Astro.props;
+---
+
+<section class="project-hero">
+  <div class="content-column">
+    <h2>{title}</h2>
+    <ul class="tech-list">
+      {tech.map(t => <li>{t}</li>)}
+    </ul>
+    <p>{summary}</p>
+  </div>
+</section>

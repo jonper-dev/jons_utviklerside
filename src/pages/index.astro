@@ -1,6 +1,10 @@
 ---
 import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -8,119 +12,33 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="Hjem">
   <main>
-    <article class="intro-article" id="intro-article">
-      <Hero />
-
-      <section class="intro-section" id="intro-section">
+    <article class="intro-article">
+      <section>
+        <Hero />
         <div class="content-column">
           <h2>Introduksjon</h2>
           <p>
             Velkommen til min hjemmeside, her finner du informasjon om meg og et
             utvalg av mine prosjekter.
           </p>
-
-          <h3>Om meg</h3>
-          <p>
-            Hei, og velkommen. Jeg heter Jon Petter og er 34 år. Jeg er fra
-            Jugendbyen, Ålesund, og har studert webutvikling ved NTNU i Gjøvik de
-            siste tre årene. Studiet passet meg godt da jeg alltid har vært
-            interessert i teknologi, og jeg har interessert meg for data og
-            internett siden jeg ble kjent med disse for lenge siden. Som
-            webutvikler og person generelt vil jeg si jeg har fokus på struktur og
-            helheten, og sammen med medstudenter og talentfulle undervisere har
-            jeg spedd på disse med kunnskap og interesse for tilgjengelighet,
-            brukerpersonalisering og en rimelig kunnskap om design. Teknologier
-            jeg har lært er React, JavaScript, samt grunnleggende teknologier som
-            HTML, CSS/SCSS. Har i tillegg gått litt utenom dette, og kan Python
-            fra fag og fritid, og utviklersiden min er laget i Astro for å få et
-            avbrekk fra React/JavaScript-rammeverket som er det mest typisk
-            brukte. I databaseverdenen har jeg erfaring med både SQL og
-            No-SQL-databaser i MongoDB, og Apache-servere har også blitt brukt i
-            studiet.
-          </p>
-          <p>
-            Foruten dette har jeg flere fritidsinteresser, og noen av de største
-            er matlaging (og mat!), styrketrening, og videospill/dataspill. Har
-            spesielt en forkjærlighet for strategispill på data. Har også
-            hobbyprogrammert litt modifikasjoner til spill før webutvikling spiste
-            seg inn på deler av fritiden min, så programmering utenom webutvikling
-            kan også sies å være en hobby. Framover håper jeg å kunne bidra på
-            full-stack prosjekter, og jeg er glad i å lage eller være med på å
-            lage hverdagslige nettsider eller tjenester for folk, som f.eks.
-            oppskrifttssider, presentasjonssider, eller noe funksjonabelt,
-            hjelpsomt, nyttig eller gøy generelt.
-          </p>
         </div>
       </section>
     </article>
 
-    <article class="projects-article" id="projects-article">
-      <h2>Prosjekter</h2>
-      <section>
-        <div class="content-column">
-          <h3>Læringsoptimalisert KI-assistent</h3>
-          <p>
-            Den læringsoptimaliserte KI-assistenten gruppen har prototypet er
-            bachelorprosjektet vårt. Her er formålet todelt, praktisk sett er det
-            å utvikle en hjelpsom KI-assistent for studenter, en oppgave gitt av
-            KI-labben på NTNUs Institutt for design. Sekundært er også formålet
-            med en slik bacheloroppgave å gjøre originale studier som ikke er
-            gjort før, og vår gruppe benyttet prototypen og brukertesting for å
-            finne ut om vår parprogrammeringsfokuserte KI med redusert kognitiv
-            belastning kunne øke læringsutbyttet i prosjekter hvor studenter som
-            koder genererer hele eller deler av koden med KI-hjelp. Dette
-            prosjektet har vært spennende, og både innsikten og produktet kan
-            håpes å være til hjelp for framtidige studenter, undervisere og
-            hobbykodere.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <div class="content-column">
-          <h3>Nettbasert spillplatform</h3>
-          <p>
-            Originalt sett et simpelt tastaturtrykk-basert nettleserspill med
-            hester som konkurrerer i å løpe en strekning, denne gamle
-            innleveringsoppgaven har blitt pusset opp og omformet til en
-            spillplatform med et utvalg spill, inkludert en forbedret variant av
-            hesteløpet. Dette inkulderer en sentral «hub» for å velge spill, og en
-            meny per spill. Selve siden har gått fra enkel HTML og modulær
-            JavaScript med kun frontend, til et moderne full-stack rammeverk med
-            React i frontend, og JavaScript-server med en enkel MongoDB-database
-            for backend. Definitivt et hobbyprosjekt basert på egne interesser,
-            men avansert og interessant i seg selv like fullt.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <div class="content-column">
-        <h3>Nettstyrt hjemmesystem for plantestell</h3>
-          <p>
-            Vårt Semi-automatiske multi-plantesystem (SAMPS) er et gruppeprosjekt
-            for Tingenes web, og består derfor av en fysisk prototyp med rom for
-            plantepotter, fuktsensorer, plantelys og varsellamper, i tillegg til
-            den software-baserte kodeløsningen og nå et oppdatert nettbasert
-            brukergrensesnitt for det ferdige prosjektet. Idéen her er at det er
-            de mest grunnleggende tingene som passe vanning og passe lys som
-            ødelegger for de fleste plantepassere. Ting som mangel på erfaring
-            eller en travel hverdag kan gjøre at folk ikke får til optimale
-            forhold for sine planter, og plantene da vissner. SAMPS er en prototyp
-            som ønsker å løse dette på et enkelt, fornuftig og ikke altfor
-            kostbart oppsett. Idéen er at man velger sin plantetype for en
-            posisjon i systemet, og optimale lysforhold og vanningsforhold hentes
-            fra lagret data, enten via lokalt lagret data eller en database for
-            førstegangsoppsett. Automatiske plantelys ordner lysstyrke og antall
-            timer med lys, mens vanning varsles på enkelt vis via små
-            varsellamper. Disse blinker ved for tørre forhold, og lyser jevnt når
-            man overvanner. Om brukeren da velger riktig plante og følger litt med
-            på vanning vil disse kunne holde sine planter ved optimale forhold
-            langt oftere enn en gjennomsnittlig husplanteeier, og ha langt bedre
-            utfall for egne planter.
-          </p>
-        </div>
-      </section>
+    <article class="projects-article">
+      <div class="content-column--full">
+        <h2>Prosjekter</h2>
+      </div>
+      {projects.map(project => (
+        <section class="project-card">
+          <h3>{project.data.title}</h3>
+          <p>{project.data.summary}</p>
+          <ul class="tech-list">
+            {project.data.tech.map(t => <li>{t}</li>)}
+          </ul>
+          <a href={`/projects/${project.id}`} class="card-link">Les mer →</a>
+        </section>
+      ))}
     </article>
   </main>
 </BaseLayout>

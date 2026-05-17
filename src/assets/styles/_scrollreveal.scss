@@ -1,0 +1,31 @@
+// ##################################
+// ### Scroll reveal animations   ###
+// ##################################
+// Base hidden state and directional offsets before reveal.
+// .revealed class is added by IntersectionObserver in ScrollReveal.astro.
+
+.scroll-reveal {
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transition-delay: var(--delay, 0ms);
+
+  // Directional starting offsets.
+  &[data-direction="up"]    { transform: translateY(24px); }
+  &[data-direction="left"]  { transform: translateX(-24px); }
+  &[data-direction="right"] { transform: translateX(24px); }
+
+  // Revealed state — transition to natural position.
+  &.revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  // Respect reduced motion — skip animation, reveal immediately.
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

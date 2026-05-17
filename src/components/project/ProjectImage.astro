@@ -1,0 +1,21 @@
+---
+// Resolves and optimises a project image by path using Astro's Image component.
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/projects/**/*.{png,jpg,jpeg,webp}'
+);
+
+const imageLoader = images[src];
+if (!imageLoader) throw new Error(`Image not found: ${src}`);
+const image = await imageLoader();
+---
+
+<Image src={image.default} alt={alt} />

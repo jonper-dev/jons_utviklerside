@@ -1,0 +1,53 @@
+---
+// Wraps any content in a scroll-triggered reveal animation.
+// Observes visibility via IntersectionObserver and adds .revealed on entry.
+// Respects prefers-reduced-motion both in CSS and by skipping the observer.
+// Props: direction (animation origin), delay (stagger offset in ms).
+interface Props {
+  direction?: 'up' | 'left' | 'right';
+  delay?: number;
+}
+const { direction = 'up', delay = 0 } = Astro.props;
+---
+
+<div
+  class="scroll-reveal"
+  data-direction={direction}
+  data-delay={delay}
+>
+  <slot />
+</div>
+
+<script>
+  // Set --delay custom property from data attribute for use in SCSS transition-delay.
+  document.querySelectorAll<HTMLElement>('.scroll-reveal').forEach(el => {
+    const delay = el.dataset.delay ?? '0';
+    el.style.setProperty('--delay', `${delay}ms`);
+  });
+
+  // Reveal all elements immediately if reduced motion is preferred, skip observer.
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      el.classList.add('revealed');
+    });
+  } else {
+    // Observe all .scroll-reveal elements and add .revealed when 15% is visible.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target); // Animate once, do not reverse.
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  }
+</script>

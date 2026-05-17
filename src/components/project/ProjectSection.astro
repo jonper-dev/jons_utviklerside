@@ -1,0 +1,30 @@
+---
+// Reusable project content section with optional image and scroll reveal.
+// flip prop reverses the text/image order for visual alternation between sections.
+import ScrollReveal from './ScrollReveal.astro';
+
+interface Props {
+  title: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  flip?: boolean;
+}
+const { title, imageUrl, imageAlt, flip = false } = Astro.props;
+---
+
+<section class:list={['project-section', { 'project-section--flip': flip }]}>
+  <ScrollReveal direction="up">
+    <div class="content-column">
+      <h2>{title}</h2>
+      <slot />
+    </div>
+  </ScrollReveal>
+
+  {imageUrl && (
+    <ScrollReveal direction={flip ? 'left' : 'right'} delay={150}>
+      <div class="project-section__image">
+        <img src={imageUrl} alt={imageAlt ?? title} />
+      </div>
+    </ScrollReveal>
+  )}
+</section>

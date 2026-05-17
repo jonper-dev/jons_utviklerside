@@ -1,0 +1,49 @@
+// ##############################
+// ### Individual project pages###
+// ##############################
+
+// Hero section at the top of each project page.
+.project-hero {
+  padding: 3rem 1rem;
+  width: 100%;
+}
+
+// Content section with optional image, supports flipped layout via BEM modifier.
+.project-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 1rem;
+  align-items: center;
+  width: 100%;
+
+  // Reverse text/image order for visual alternation between sections.
+  &--flip {
+    flex-direction: row-reverse;
+  }
+
+  &__image {
+    flex: 1 1 300px;
+    max-width: 600px;
+
+    img {
+      width: 100%;
+      border-radius: 6px;
+    }
+  }
+}
+
+// Prev/next navigation between project pages.
+.project-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+  width: 100%;
+
+  a {
+    color: var(--color-accent);
+  }
+}

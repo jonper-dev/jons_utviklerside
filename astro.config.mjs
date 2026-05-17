@@ -1,5 +1,17 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
-// https://astro.build/config
-export default defineConfig({});
+const isProd = process.env.NODE_ENV === 'production';
+const isGithubPages = process.env.DEPLOY_TARGET === 'github';
+
+export default defineConfig({
+  integrations: [mdx()],
+  site: isGithubPages
+    ? 'https://jonper-dev.github.io'
+    : 'https://jpervik.no',
+  base: isGithubPages ? '/jons_utviklerside' : '/',
+  server: {
+    open: false
+  }
+});

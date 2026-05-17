@@ -1,0 +1,51 @@
+---
+// Dynamic route for individual project pages.
+// Renders MDX content with ProjectSection components for scrollytelling layout.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectHero from '../../components/project/ProjectHero.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const allProjects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const currentIndex = allProjects.findIndex(p => p.id === project.id);
+const prev = allProjects[currentIndex - 1] ?? null;
+const next = allProjects[currentIndex + 1] ?? null;
+---
+
+<BaseLayout title={project.data.title}>
+  <main>
+    <article class="intro-article">
+
+      <ProjectHero
+        title={project.data.title}
+        summary={project.data.summary}
+        tech={project.data.tech}
+      />
+
+      <Content />
+
+    </article>
+
+    <nav class="project-nav" aria-label="Prosjektnavigasjon">
+      <div>
+        {prev && <a href={`/projects/${prev.id}`}>← {prev.data.title}</a>}
+      </div>
+      <a href="/projects">Alle prosjekter</a>
+      <div>
+        {next && <a href={`/projects/${next.id}`}>{next.data.title} →</a>}
+      </div>
+    </nav>
+  </main>
+</BaseLayout>

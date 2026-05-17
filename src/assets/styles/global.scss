@@ -8,7 +8,10 @@
 @use 'fonts';
 @use 'typography';
 
-// Animation imports
+// Animation and component imports
+@use 'cards';
+@use 'project';
+@use 'scrollreveal';
 @use 'hero';
 
 // Other imports

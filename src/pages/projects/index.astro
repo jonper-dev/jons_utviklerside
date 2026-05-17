@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Prosjekter">
+  <main>
+    <article class="intro-article">
+      <section>
+        <div class="content-column">
+          <h2>Prosjekter</h2>
+          <p>Et utvalg av prosjektene mine.</p>
+        </div>
+      </section>
+    </article>
+
+    <article class="projects-article">
+      {projects.map(project => (
+        <section class="project-card">
+          <div class="content-column">
+            <h3>{project.data.title}</h3>
+            <p>{project.data.summary}</p>
+            <ul class="tech-list">
+              {project.data.tech.map(t => <li>{t}</li>)}
+            </ul>
+            <a href={`/projects/${project.id}`}>Les mer →</a>
+          </div>
+        </section>
+      ))}
+    </article>
+  </main>
+</BaseLayout>
