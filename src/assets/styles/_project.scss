@@ -1,6 +1,17 @@
-// ##############################
-// ### Individual project pages###
-// ##############################
+// ################################
+// ### Individual project pages ###
+// ################################
+// Special handling for the JavaScript icon to contrast nicely with the two themes.
+.tech-icon[data-tech="JavaScript"] {
+  [data-theme="light"] & {
+    // Dark blue tint for light mode — filter values approximate #1a3a6b
+    filter: invert(40%) sepia(64%) saturate(800%) hue-rotate(195deg) brightness(80%);
+  }
+  [data-theme="dark"] & {
+    // Yellow for dark mode — removes invert, applies JS yellow #f7df1e
+    filter: invert(20%) sepia(61%) saturate(700%) hue-rotate(5deg) brightness(103%);
+  }
+}
 
 // Hero section at the top of each project page.
 .project-hero {
@@ -17,6 +28,10 @@
   padding: 3rem 1rem;
   align-items: center;
   width: 100%;
+
+  ul, ol {
+    padding-inline-start: 1.5rem; // Restores natural list indentation.
+  }
 
   // Reverse text/image order for visual alternation between sections.
   &--flip {
@@ -36,14 +51,42 @@
 
 // Prev/next navigation between project pages.
 .project-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; // Three equal slots, middle centers naturally.
   align-items: center;
   padding: 2rem 1rem;
   width: 100%;
+  border-top: 1px solid var(--color-surface);
+  margin-top: 2rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+
+  // Next link aligned right.
+  div:last-child {
+    text-align: right;
+  }
 
   a {
     color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:visited {
+      color: var(--color-accent); // This keeps accent color, visited state not so relevant here.
+    }
+  }
+}
+
+.project-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-block-end: 1.5rem;
+
+  figcaption {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    font-style: italic;
+    text-align: center;
   }
 }

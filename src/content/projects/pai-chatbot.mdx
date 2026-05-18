@@ -8,20 +8,49 @@ order: 1
 import ProjectSection from '../../components/project/ProjectSection.astro';
 import ProjectImage from '../../components/project/ProjectImage.astro';
 
-<ProjectSection title="Hva er det">
-  «Pedagogical Artificial Intelligence», forkortet PAI eller PAI chatbot, er en KI-chatbot utviklet
-  for å utforske hvordan KI-verktøy kan brukes til hjelp for læring. Denne er inspirert av eksisterende markedsløsninger,
-  med funksjonalitet i senter, og har en pedagogisk vri både med tanke på systeminstruksjoner og valgte elementer på nettapplikasjonen.
+<ProjectSection title="Prosjektoversikt">
+  <ProjectImage
+    src="/src/assets/images/projects/pai-chatbot/pai_chatbot_finalized_version_response.png"
+    alt="Et eksempel på den ferdige versjonen av KI-verktøyet PAI chatbot, som gir et svar på en fritekst-prompt. Svaret, de forhåndslagde «prompt»-ene og inntekstfeltet for fritekst-«prompt»-er kan ses."
+    caption="Figur 1: Den siste versjonen av PAI chatbot ved brukertesting og innlevering av bachelorprosjekt."
+  />
+
+  «Pedagogical Artificial Intelligence», forkortet PAI eller PAI chatbot, er en KI-chatbot utviklet for å utforske hvordan KI-verktøy kan brukes til hjelp for læring. Denne er inspirert av eksisterende markedsløsninger, med funksjonalitet i senter, og har en pedagogisk vri både med tanke på systeminstruksjoner og valgte elementer på nettapplikasjonen. Dette MERN-stack prosjektet har en tosidig tilknytning til backend-serveren, da den både håndterer standard MongoDB-tilkobling for lagring av brukerinformasjon, samtaler, «prompt»-er sendt, osv., og også en Anthropic API-tilknytning for å benytte seg av Anthropics Claude Sonnet model. Denne er laget med pedagogikk, brukertesting og akademisk forskning i tankene.
 </ProjectSection>
 
-<ProjectSection title="Hvordan ble det laget" imageUrl="/src/assets/images/pai-chatbot_early_development.png" imageAlt="PAI chatbot grensesnitt">
-  Skriv innhold her.
+<ProjectSection title="Hvordan ble det laget" flip>
+  Bachelorgruppe 16 ønsket å utforme et verktøy på bakgrunn av brukerinnsikt fra en relevant gruppe, så anonyme prototypintervjuer ble utført på NTNU i Gjøviks studenter innenfor kodebaserte fag (i vårt tilfelle ble det webutvikling, cybersikkerhet og informasjonsteknologier). Ønsket om et verktøy der funksjonalitet og det viktigste står i senter ble funnet ved hjelp av sorterte intervjudata på Figma. Dette ble sortert via MoSCoW-metoden, og gruppen implementerte «Must have»-funksjonene og de fleste av «Should have»-funksjonene.
+  <ProjectImage
+    src="/src/assets/images/projects/pai-chatbot/pai_chatbot_figma_prototype_lightmode.png"
+    alt="Figma-prototypen PAI chatbot ble designet etter, med lys modus farger, samt en litt varm, «kontrastfarge» for elementer som knapper. Forhåndslagde «promtps» er også inkludert i chatvindu-designet."
+    caption= "Figur 2: Den valgte Figma-prototypen for å designe PAI chatbot etter, her prototypen for lys modus."
+  />
+
+  <ProjectImage
+    src="/src/assets/images/projects/pai-chatbot/pai_chatbot_early_development.png"
+    alt="En tidlig utgave av KI-verktøyet PAI chatbot, der tekstsvaret strekker seg over hele siden og de forhåndslagde «prompt»-ene er enkle og hentet fra en liste og/eller basert på enkel logikk."
+    caption="Figur 3: En tidlig versjon av KI-verktøyet PAI-chatbot, der tekst ennå strekker seg over hele siden og de forhåndslagde «prompt»-ene ennå er hentet fra en liste og/eller basert på enkel logikk (kontra å genereres fra kontekst)."
+  />
+
+  Det viste seg at brukerne stort sett ønsket seg noe som eksiterende kommersielle KI-løsninger av den grunn (der samtalen/samtaleloggen og inntektsfelt er i senter). Grundig Figma-prototyping der gruppens interaksjonsdesignmedlem tok hovedansvar ble utført, og en visuell prototyp for login og samtaleside ble laget (både i lys- og mørk modus), og etter avstemming landet vi på litt varme, «pedagogiske» farger for designet. Dette ble så implementert av webutviklerne i VSCode, og ryddig oppsatt ved hjelp av pull requests i VSCode. Etter hovedfunksjonaliteten var satt opp som et MERN-stack prosjekt som brukte lokal Ollama ble det gradvis iterert, først med såkalte «prompt suggestions», som er ferdiglagde «prompts» brukerne kan trykke på for forhåpentligvis å redusere kognitiv belastning og interaksjonskostnad, som teoretisk sett kan være godt for læring. Senere ved at løsningen måtte skaleres for flere brukere, mer praktisk oppsett og bedre KI-modeller, så gruppen gikk over til å bruke Anthropics Claude Sonnet. Videre ble designet forbedret, funksjonalitetene finpusset og designet ble mer responsivt og ryddigere med tanke på chat-formattering.
+
+  <ProjectImage
+    src="/src/assets/images/projects/pai-chatbot/pai_chatbot_mid-development_lightmode.png"
+    alt="En utgave av KI-verktøyet PAI chatbot fra noen uker før sluttversjonen. Designet ligner nå på Figma-prototypene, og tekst er håndtert bedre, men ikke like bra som i den ferdige utgaven. Dette eksempelet er i lys modus."
+    caption="Figur 4: En utgave av KI-verktøyet PAI chatbot under utvikling, fra noen uker før brukertesting. Denne er substansielt forbedret og ligner mye mer på Figma-prototypen. Dette eksempelet viser også lys modus. Det var framdeles litt forbedring å gjøre med tanke på layout, chat og listehåndtering på dette punktet."
+  />
 </ProjectSection>
 
-<ProjectSection title="Refleksjoner" flip>
-  Skriv innhold her.
+<ProjectSection title="Refleksjoner">
+  Dette prosjektet har latt meg forbedre ferdighetene mine med praktisk brukertesting og akademisk forskning, i tillegg til å være første gang jeg kobler opp KI-modeller til en nettapplikasjon, noe som er svært i vinden for tiden, og sannsynligvis kunnskap man får bruk for igjen. Det har også vist meg fordelen av å jobbe i en gruppe med ulike styrker, som med godt samarbeid og koordinering får fram disse styrkene der det trengs.
 </ProjectSection>
 
-<ProjectSection title="Fremtidige planer">
-  Skriv innhold her.
+<ProjectSection title="Fremtidige planer" flip>
+  Selv om PAI-chatbotten har blitt mye jobbet med gjennom semesteret er det fremdeles noen småting man kan forbedre:
+  <ul>
+    <li>Forbedre det enkle autentikasjonssystemet som er greit nok til brukertesting, men ikke sikkert nok til full produksjon.</li>
+    <li>Passe på at alle de forhåndslagde «prompt»-ene holder seg over fritekstfeltet, og ikke blir delvis blokkert av dette.</li>
+    <li>Kodeblokkformatering og utskilling av kodeblokker fra øvrig tekst, for enkelere lesing og kopiering.</li>
+    <li>En ennå bedre systemprompt som ennå sterkere oppfordres til å holde svar og beskrivelser korte, og fjerning av de brukertestspesifikke instruksjonene for en mer allmenn bruk.</li>
+  </ul>
 </ProjectSection>

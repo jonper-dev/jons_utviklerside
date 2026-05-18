@@ -1,13 +1,15 @@
 ---
 // Resolves and optimises a project image by path using Astro's Image component.
+// Renders a clickable thumbnail that opens a lightbox on click.
 import { Image } from 'astro:assets';
 
 interface Props {
   src: string;
   alt: string;
+  caption?: string;
 }
 
-const { src, alt } = Astro.props;
+const { src, alt, caption } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/images/projects/**/*.{png,jpg,jpeg,webp}'
@@ -18,4 +20,19 @@ if (!imageLoader) throw new Error(`Image not found: ${src}`);
 const image = await imageLoader();
 ---
 
-<Image src={image.default} alt={alt} />
+<figure class="project-figure">
+  <div
+    class="lightbox-trigger"
+    role="button"
+    tabindex="0"
+    aria-label={`Forstørr bilde: ${alt}`}
+    data-src={image.default.src}
+    data-alt={alt}
+    data-caption={caption ?? ''}
+  >
+    <Image src={image.default} alt={alt} />
+  </div>
+  {caption && (
+    <figcaption>{caption}</figcaption>
+  )}
+</figure>

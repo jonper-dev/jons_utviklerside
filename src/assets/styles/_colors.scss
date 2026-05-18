@@ -19,17 +19,21 @@ $light-muted:      #676767;
 // ### Theme maps → CSS custom properties ###
 // ##########################################
 [data-theme="dark"] {
-  --color-background: #{$dark-background};
-  --color-text:       #{$dark-text};
-  --color-surface:    #{$dark-surface};
-  --color-accent:     #{$dark-accent};
-  --color-muted:      #{$dark-muted};
+  --color-background:   #{$dark-background};
+  --color-text:         #{$dark-text};
+  --color-surface:      #{$dark-surface};
+  --color-accent:       #{$dark-accent};
+  --color-muted:        #{$dark-muted};
+  --color-link:         #7aa2f7;      // Same as accent, visible on dark background.
+  --color-link-visited: #b09ae8;      // Muted purple, distinct but not jarring.
 }
 
 [data-theme="light"] {
-  --color-background: #{$light-background};
-  --color-text:       #{$light-text};
-  --color-surface:    #{$light-surface};
-  --color-accent:     #{$light-accent};
-  --color-muted:      #{$light-muted};
+  --color-background:   #{$light-background};
+  --color-text:         #{$light-text};
+  --color-surface:      #{$light-surface};
+  --color-accent:       #{$light-accent};
+  --color-muted:        #{$light-muted};
+  --color-link:         #2563eb;      // Same as accent, visible on light background
+  --color-link-visited: #7c3aed;      // Muted purple for light background
 }

@@ -1,4 +1,5 @@
 ---
+import TechList from '../../components/TechList.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -23,9 +24,7 @@ const projects = (await getCollection('projects'))
           <div class="content-column">
             <h3>{project.data.title}</h3>
             <p>{project.data.summary}</p>
-            <ul class="tech-list">
-              {project.data.tech.map(t => <li>{t}</li>)}
-            </ul>
+            <TechList tech={project.data.tech} />
             <a href={`/projects/${project.id}`}>Les mer →</a>
           </div>
         </section>

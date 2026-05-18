@@ -3,6 +3,7 @@
 // Imports at the BaseLayout level are applied for imports that are reused on every page. – Jon
 import "../assets/styles/global.css";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import Lightbox from '../components/project/Lightbox.astro';
 
 // Font imports
 import "@fontsource/dm-sans/400.css"; // Regular (header-font)
@@ -23,9 +24,10 @@ const siteName = "Jons utviklerhjørne";
 const fullTitle = `${siteName} – ${title}`;
 
 const navLinks = [
-  { href: "/", label: "Hjem" },
-  { href: "/projects", label: "Prosjekter" },
-  { href: "/contact", label: "Kontakt" },
+  { href: '/',          label: 'Hjem' },
+  { href: '/about',     label: 'Om meg' },
+  { href: '/projects',  label: 'Prosjekter' },
+  { href: '/contact',   label: 'Kontakt' },
 ];
 
 function isActive(href: string) {
@@ -89,6 +91,7 @@ function isActive(href: string) {
       </nav>
       <ThemeToggle />
     </header>
+    <Lightbox />
     <slot />
   </body>
 </html>

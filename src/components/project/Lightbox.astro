@@ -1,0 +1,43 @@
+---
+// Lightbox component for enlarging project images on click.
+// Uses native <dialog> element for accessibility and overlay handling.
+// Activated by clicking any image wrapped in a .lightbox-trigger.
+---
+
+<dialog id="lightbox" aria-label="Forstørret bilde">
+  <button id="lightbox-close" aria-label="Lukk">✕</button>
+  <figure>
+    <img id="lightbox-img" src="" alt="" />
+    <figcaption id="lightbox-caption"></figcaption>
+  </figure>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('lightbox') as HTMLDialogElement;
+  const img = document.getElementById('lightbox-img') as HTMLImageElement;
+  const caption = document.getElementById('lightbox-caption') as HTMLElement;
+  const closeBtn = document.getElementById('lightbox-close') as HTMLButtonElement;
+
+  // Open lightbox when any .lightbox-trigger image is clicked.
+  document.querySelectorAll<HTMLElement>('.lightbox-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const src = trigger.dataset.src!;
+      const alt = trigger.dataset.alt!;
+      const cap = trigger.dataset.caption ?? '';
+      img.src = src;
+      img.alt = alt;
+      caption.textContent = cap;
+      dialog.showModal();
+    });
+  });
+
+  // Close on button click.
+  closeBtn.addEventListener('click', () => dialog.close());
+
+  // Close on backdrop click.
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  // Close on Escape is handled natively by <dialog>.
+</script>

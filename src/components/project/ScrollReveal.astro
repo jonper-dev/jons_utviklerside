@@ -20,34 +20,42 @@ const { direction = 'up', delay = 0 } = Astro.props;
 
 <script>
   // Set --delay custom property from data attribute for use in SCSS transition-delay.
-  document.querySelectorAll<HTMLElement>('.scroll-reveal').forEach(el => {
-    const delay = el.dataset.delay ?? '0';
-    el.style.setProperty('--delay', `${delay}ms`);
-  });
-
-  // Reveal all elements immediately if reduced motion is preferred, skip observer.
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReduced) {
-    document.querySelectorAll('.scroll-reveal').forEach(el => {
-      el.classList.add('revealed');
+  function initScrollReveal() {
+    document.querySelectorAll<HTMLElement>('.scroll-reveal').forEach(el => {
+      const delay = el.dataset.delay ?? '0';
+      el.style.setProperty('--delay', `${delay}ms`);
     });
+
+    // Reveal all elements immediately if reduced motion is preferred, skip observer.
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) {
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
+        el.classList.add('revealed');
+      });
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.05 } // Lowered from 0.15 for tall elements
+      );
+
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+      });
+    }
+  }
+
+  // Run after DOM is fully ready.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
   } else {
-    // Observe all .scroll-reveal elements and add .revealed when 15% is visible.
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target); // Animate once, do not reverse.
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    document.querySelectorAll('.scroll-reveal').forEach(el => {
-      observer.observe(el);
-    });
+    initScrollReveal();
   }
 </script>

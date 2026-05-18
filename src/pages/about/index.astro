@@ -1,0 +1,54 @@
+---
+// About page — personal introduction and site information.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TechList from '../../components/TechList.astro';
+
+const siteTech = ['Astro', 'TypeScript', 'SCSS', 'JavaScript'];
+---
+
+<BaseLayout title="Om meg">
+  <main>
+    <article class="intro-article">
+
+      <section>
+        <div class="content-column">
+          <h2>Om meg</h2>
+          <p>Skriv innhold her.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content-column">
+          <h3>Bakgrunn</h3>
+          <p>Skriv innhold her.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content-column">
+          <h3>Interesser</h3>
+          <p>Skriv innhold her.</p>
+        </div>
+      </section>
+
+    </article>
+
+    <article class="intro-article">
+
+      <section>
+        <div class="content-column">
+          <h2>Om denne siden</h2>
+          <p>Skriv innhold her.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content-column">
+          <h3>Teknologier brukt</h3>
+          <TechList tech={siteTech} />
+        </div>
+      </section>
+
+    </article>
+  </main>
+</BaseLayout>
