@@ -159,6 +159,67 @@ figcaption {
   opacity: 0.85;
 }
 
+.site-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-svg {
+  width: 48px;
+  height: 48px;
+}
+
+[data-theme=light] .logo-arc,
+[data-theme=light] .logo-underline {
+  stroke: #000;
+}
+[data-theme=light] .logo-initials {
+  fill: #000;
+}
+
+[data-theme=dark] .logo-arc,
+[data-theme=dark] .logo-underline {
+  stroke: #fff;
+}
+[data-theme=dark] .logo-initials {
+  fill: #fff;
+}
+
+.logo-arc {
+  stroke-dasharray: var(--arc-length, 400);
+  stroke-dashoffset: var(--arc-length, 400);
+  transition: stroke-dashoffset 0.6s ease;
+}
+.site-logo:hover .logo-arc {
+  stroke-dashoffset: 0;
+}
+
+.logo-underline {
+  animation: logo-blink 1s step-start infinite;
+}
+
+@keyframes logo-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-arc {
+    stroke-dashoffset: var(--arc-length, 400);
+    transition: stroke-dashoffset 2.5s ease;
+  }
+  .site-logo:hover .logo-arc {
+    stroke-dashoffset: 0;
+  }
+  .logo-underline {
+    animation: logo-blink 3s step-start infinite;
+  }
+}
 [data-theme=light] .tech-icon[data-tech=JavaScript] {
   filter: invert(40%) sepia(64%) saturate(800%) hue-rotate(195deg) brightness(80%);
 }
@@ -326,9 +387,12 @@ button {
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid var(--color-surface);
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 1rem;
   max-width: 2400px;
   width: 92%;
 }
