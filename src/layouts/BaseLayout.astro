@@ -32,9 +32,13 @@ const navLinks = [
   { href: `${base}/contact`,  label: 'Kontakt'     },
 ];
 
+// More explicit isActive-function to separate the homepage from the other pages when they're the ones active.
 function isActive(href: string) {
-  if (href === "/") return Astro.url.pathname === "/";
-  return Astro.url.pathname.startsWith(href);
+  const path = Astro.url.pathname;
+  if (href === `${base}/`) {
+    return path === `${base}/` || path === `${base}` || path === '/';
+  }
+  return path.startsWith(href);
 }
 ---
 
