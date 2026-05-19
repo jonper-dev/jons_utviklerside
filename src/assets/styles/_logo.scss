@@ -1,7 +1,6 @@
-// ##############################
+// ###############################
 // ### Site logo and animation ###
-// ##############################
-
+// ###############################
 .site-logo {
   display: flex;
   align-items: center;
@@ -10,8 +9,8 @@
 }
 
 .logo-svg {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
 }
 
 // Color switching based on data-theme on <html>.
@@ -38,9 +37,9 @@
   }
 }
 
-// Underline blink animation — always active.
+// Underline blink animation, always active.
 .logo-underline {
-  animation: logo-blink 1s step-start infinite;
+  animation: logo-blink var(--blink-duration) step-start infinite;
 }
 
 @keyframes logo-blink {
@@ -59,6 +58,6 @@
     }
   }
   .logo-underline {
-    animation: logo-blink 3s step-start infinite; // slower blink
+    animation: logo-blink calc(var(--blink-duration) * 3) step-start infinite;
   }
 }

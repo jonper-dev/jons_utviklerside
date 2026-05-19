@@ -5,6 +5,7 @@ tech: ["React", "Node.js", "Express", "MongoDB", "Claude API", "SCSS"]
 order: 1
 ---
 
+import Contributors from '../../components/project/Contributors.astro';
 import ProjectSection from '../../components/project/ProjectSection.astro';
 import ProjectImage from '../../components/project/ProjectImage.astro';
 
@@ -16,6 +17,8 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
   />
 
   «Pedagogical Artificial Intelligence», forkortet PAI eller PAI chatbot, er en KI-chatbot utviklet for å utforske hvordan KI-verktøy kan brukes til hjelp for læring. Denne er inspirert av eksisterende markedsløsninger, med funksjonalitet i senter, og har en pedagogisk vri både med tanke på systeminstruksjoner og valgte elementer på nettapplikasjonen. Dette MERN-stack prosjektet har en tosidig tilknytning til backend-serveren, da den både håndterer standard MongoDB-tilkobling for lagring av brukerinformasjon, samtaler, «prompt»-er sendt, osv., og også en Anthropic API-tilknytning for å benytte seg av Anthropics Claude Sonnet model. Denne er laget med pedagogikk, brukertesting og akademisk forskning i tankene.
+  
+  <p><em>Prosjektets kodearkiv: <a href="https://github.com/Falkebr/pai-chatbot" target="_blank">https://github.com/Falkebr/pai-chatbot</a></em></p>
 </ProjectSection>
 
 <ProjectSection title="Hvordan ble det laget" flip>
@@ -48,9 +51,40 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
 <ProjectSection title="Fremtidige planer" flip>
   Selv om PAI-chatbotten har blitt mye jobbet med gjennom semesteret er det fremdeles noen småting man kan forbedre:
   <ul>
-    <li>Forbedre det enkle autentikasjonssystemet som er greit nok til brukertesting, men ikke sikkert nok til full produksjon.</li>
+    <li>Forbedre det enkle autentikasjonssystemet som er greit nok til brukertesting, men ikke sikkert nok til å være fullverdig.</li>
     <li>Passe på at alle de forhåndslagde «prompt»-ene holder seg over fritekstfeltet, og ikke blir delvis blokkert av dette.</li>
     <li>Kodeblokkformatering og utskilling av kodeblokker fra øvrig tekst, for enkelere lesing og kopiering.</li>
     <li>En ennå bedre systemprompt som ennå sterkere oppfordres til å holde svar og beskrivelser korte, og fjerning av de brukertestspesifikke instruksjonene for en mer allmenn bruk.</li>
   </ul>
+</ProjectSection>
+
+<ProjectSection title="Bidragsytere">
+  <Contributors contributors={[
+    {
+      name: "Marius Sandvik Bjørnstad",
+      role: "Webutvikler",
+      links: [
+        { type: "github", url: "https://github.com/Memeius" },
+        { type: "linkedin", url: "https://www.linkedin.com/in/marius-sandvik-bjornstad/" },
+        { type: "website", url: "https://www.msab.no/" }
+      ]
+    },
+    {
+      name: "Falke Brautaset",
+      role: "Webutvikler",
+      links: [
+        { type: "github", url: "https://github.com/Falkebr" },
+        { type: "linkedin", url: "https://no.linkedin.com/in/falke-brautaset-b27940236" },
+        { type: "website", url: "http://www.falkebr.no/" }
+      ]
+    },
+    {
+      name: "Martin Bergkvam Rognaldsen",
+      role: "Interaksjonsdesigner",
+      links: [
+        { type: "linkedin", url: "https://www.linkedin.com/in/martin-rognaldsen-2905863b5" },
+        { type: "website", url: "https://martbrogfea8.myportfolio.com/" }
+      ]
+    }
+  ]} />
 </ProjectSection>

@@ -25,6 +25,7 @@ export const techIconMap: Record<string, string | null> = {
 
   // Hardware & IoT
   'Raspberry Pi': 'raspberrypi',
+  'Micro:bit': 'microbit',
   'IoT':          null, // no Simple Icons entry, skip icon
 
   // Other
@@ -41,5 +42,18 @@ export function getTechIconUrl(tech: string): string | null {
     return null;
   }
   if (slug === null) return null; // known missing, no warning
+  return `https://cdn.simpleicons.org/${slug}`;
+}
+
+// Platform icons for contributor links.
+export const platformIconMap: Record<string, string | null> = {
+  github:   'github',
+  linkedin: null, // No reliable icon, use text badge instead.
+  website:  'html5', // HTML5 icon as stand-in for personal homepages.
+};
+
+export function getPlatformIconUrl(platform: string): string {
+  const slug = platformIconMap[platform];
+  if (!slug) return '';
   return `https://cdn.simpleicons.org/${slug}`;
 }

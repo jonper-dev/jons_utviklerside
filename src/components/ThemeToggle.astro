@@ -1,18 +1,44 @@
 ---
-// ThemeToggle – The toggle for light-/system-/darkmode.
-// No frontmatter needed.
-
-import "../assets/styles/global.css";
+// Three-position theme toggle slider — light, system, dark.
+// Thumb slides to clicked position, icons crossfade on transition.
 ---
 
-<div class="theme-toggle" role="group" aria-label="Theme preference">
-  <button data-theme-value="light" aria-label="Light theme">☀︎</button>
-  <button data-theme-value="system" aria-label="System theme">◐</button>
-  <button data-theme-value="dark" aria-label="Dark theme">☾</button>
+<div class="theme-toggle" role="group" aria-label="Temavalg">
+  <div class="theme-toggle__track">
+    <button
+      class="theme-toggle__stop"
+      data-theme-value="light"
+      aria-label="Lyst tema"
+    >
+      <span class="theme-toggle__icon">☀︎</span>
+    </button>
+
+    <button
+      class="theme-toggle__stop"
+      data-theme-value="system"
+      aria-label="Systemtema"
+    >
+      <span class="theme-toggle__icon">◐</span>
+    </button>
+
+    <button
+      class="theme-toggle__stop"
+      data-theme-value="dark"
+      aria-label="Mørkt tema"
+    >
+      <span class="theme-toggle__icon">☾</span>
+    </button>
+
+    <div class="theme-toggle__thumb" aria-hidden="true"></div>
+  </div>
 </div>
 
 <script>
+  // Three-position theme toggle.
+  // Reads stored preference, moves thumb to correct position, applies theme.
+
   const buttons = document.querySelectorAll<HTMLButtonElement>('[data-theme-value]');
+  const thumb = document.querySelector<HTMLElement>('.theme-toggle__thumb');
 
   function getStored(): string {
     return localStorage.getItem('theme') ?? 'system';
@@ -20,8 +46,22 @@ import "../assets/styles/global.css";
 
   function applyTheme(value: string) {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const resolved = value === 'system' ? (prefersDark ? 'dark' : 'light') : value;
+    const resolved = value === 'system'
+      ? (prefersDark ? 'dark' : 'light')
+      : value;
     document.documentElement.setAttribute('data-theme', resolved);
+  }
+
+  function moveThumb(value: string) {
+    const positions: Record<string, number> = {
+      light: 0,
+      system: 1,
+      dark: 2,
+    };
+    const index = positions[value] ?? 1;
+    if (thumb) {
+      thumb.style.setProperty('--thumb-index', `${index}`);
+    }
   }
 
   function setActive(value: string) {
@@ -32,22 +72,27 @@ import "../assets/styles/global.css";
 
   function handleSystemChange(e: MediaQueryListEvent) {
     if (getStored() === 'system') {
-      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      document.documentElement.setAttribute(
+        'data-theme',
+        e.matches ? 'dark' : 'light'
+      );
     }
   }
 
-  // Init
+  // Init on load.
   const initial = getStored();
+  moveThumb(initial);
   setActive(initial);
 
-  // System preference listener — only acts when mode is 'system'
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleSystemChange);
+  window.matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', handleSystemChange);
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const value = btn.dataset.themeValue!;
       localStorage.setItem('theme', value);
       applyTheme(value);
+      moveThumb(value);
       setActive(value);
     });
   });

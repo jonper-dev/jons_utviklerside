@@ -1,54 +1,108 @@
 ---
 // About page — personal introduction and site information.
-import BaseLayout from '../../layouts/BaseLayout.astro';
+// import coffeeIcon from '../../assets/icons/general/coffee-svgrepo.svg';
+import cookingIcon from '../../assets/icons/general/pot-kitchen-svgrepo.svg';
+import computerIcon from '../../assets/icons/general/computer-and-monitor-svgrepo.svg';
+import dumbbellIcon from '../../assets/icons/general/dumbbell-gym-svgrepo.svg';
+import PersonalLinks from '../../components/PersonalLinks.astro';
 import TechList from '../../components/TechList.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const siteTech = ['Astro', 'TypeScript', 'SCSS', 'JavaScript'];
+const siteTech = ['Astro', 'TypeScript', 'SCSS', 'JavaScript', 'GitHub'];
 ---
 
 <BaseLayout title="Om meg">
-  <main>
-    <article class="intro-article">
+  <article class="intro-article">
+    <section>
+      <div class="content-column">
+        <h2>Om meg</h2>
+        <p>
+          Jeg heter Jon Petter, og er en 34 åring fra Jugendbyen, Ålesund.
+          De siste tre årene har jeg studert webutvikling ved NTNU i Gjøvik.
+          Studiet passet meg godt da jeg alltid har vært interessert i teknologi, data og internett
+          siden jeg ble kjent med disse for lenge siden.
+        </p>
 
-      <section>
-        <div class="content-column">
-          <h2>Om meg</h2>
-          <p>Skriv innhold her.</p>
-        </div>
-      </section>
+        <p>
+          Som person er jeg moderat sosial, glad i både aktivitet og hvile, og trives godt med familie og nære venner.
+          Ellers er jeg ganske avslappet og liker å ikke ta meg selv eller livet så altfor seriøst.
+        </p>
 
-      <section>
-        <div class="content-column">
-          <h3>Bakgrunn</h3>
-          <p>Skriv innhold her.</p>
-        </div>
-      </section>
+        <PersonalLinks />
+      </div>
+    </section>
 
-      <section>
-        <div class="content-column">
-          <h3>Interesser</h3>
-          <p>Skriv innhold her.</p>
-        </div>
-      </section>
+    <section>
+      <div class="content-column">
+        <h3>Interesser</h3>
+        <p>
+          Jeg har flere fritidsinteresser, og noen av de største er matlaging (og mat!), styrketrening, og videospill/dataspill.
+          Jeg har spesielt en forkjærlighet for strategispill på data.
+          Videre har jeg også hobbyprogrammert litt modifikasjoner til spill før webutvikling spiste seg inn på deler av fritiden min,
+          så programmering utenom webutvikling kan også sies å være en hobby.
+        </p>
+        
+        <p>
+          Også webutvikling kan være en hobby for meg,
+          og spesielt om noen av prosjektene omhandler interessene min.
+          og er glad i å lage eller være med på å lage hverdagslige nettsider eller tjenester for folk,
+          som f.eks. oppskrifttssider, presentasjonssider, eller noe funksjonabelt, hjelpsomt, nyttig eller gøy generelt.
+        </p>
+      </div>
+      <div class="interests">
+      <div class="interest">
+        <img src={cookingIcon.src} alt="" class="interest-icon" aria-hidden="true" />
+        <span>Mat og matlaging</span>
+      </div>
+      <div class="interest">
+        <img src={computerIcon.src} alt="" class="interest-icon" aria-hidden="true" />
+        <span>Spill og programmering</span>
+      </div>
+      <div class="interest">
+        <img src={dumbbellIcon.src} alt="" class="interest-icon" aria-hidden="true" />
+        <span>Vektløfting og trening</span>
+      </div>
+    </div>
+    </section>
+  </article>
 
-    </article>
+  <article class="intro-article">
+    <section>
+      <div class="content-column">
+        <h2>Om denne siden</h2>
+        <p>
+          Denne siden er et relativt ambisiøst prosjekt for meg, da det er første gang jeg bruker Astro-rammeverket
+          for å bygge en nettside. Videre er her animerte prosjektoppsummeringer, logoer, «skrivemaskin»-intro, og annet spennende.
+          Den har også mange automatiserte metoder å matche teknologi-ikoner til tekst, både for prosjekter og bidragsytere til prosjektene.
+        </p>
 
-    <article class="intro-article">
+        <p>
+          Til tross for all denne litt mer avanserte funksjonaliteten, har jeg også forsøkt å få inn semantiske elementer og tilgjengelighet innenfor dette rammeverket,
+          og det viste seg at Astros MDX-filbaserte prosjektsystem omgjorde fra MDX-filene til semantiske HTML-elementer på en ryddig måte.
+          Videre har siden støtte for preferanser for redusert bevegelse, den er relativt responsiv,
+          og Lightbox/dialog benyttes for en ryddig presentasjon av bilder og bildetekst når disse ønskes forstørret ved klikk.
+        </p>
+      </div>
+    </section>
 
-      <section>
-        <div class="content-column">
-          <h2>Om denne siden</h2>
-          <p>Skriv innhold her.</p>
-        </div>
-      </section>
+    <section>
+      <div class="content-column">
+        <h3>Teknologier brukt</h3>
+        <TechList tech={siteTech} />
+      </div>
+    </section>
 
-      <section>
-        <div class="content-column">
-          <h3>Teknologier brukt</h3>
-          <TechList tech={siteTech} />
-        </div>
-      </section>
-
-    </article>
-  </main>
+    <section>
+      <div class="content-column">
+        <h3>Anerkjennelser</h3>
+        <ul>
+          <li>Gruppemedlemmene mine for å hjelpe meg å lage prosjektene, både de som er her og andre prosjekter.</li>
+          <li>NTNU og dets undervisere for å lære og framheve ting på en måte man ikke kan lære på egenhånd, hverken fra bøker, internett eller KI.</li>
+          <li><a href="https://simpleicons.org/">Simple Icons</a> for teknologi-ikonene brukt til å vise både prosjekteknologier, samt bidragsyteres lenker.</li>
+          <li><a href="https://www.svgrepo.com/">SVG Repo</a> for enkle vektorer brukt i interesse-seksjonen.</li>
+          <li>Anthropics <a href="https://claude.ai">Claude chatbot</a> for hjelp med noe av den mer avanserte funksjonaliteten.</li>
+        </ul>
+      </div>
+    </section>
+  </article>
 </BaseLayout>

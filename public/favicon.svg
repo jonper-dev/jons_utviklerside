@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="520 255 220 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="505 245 235 240">
   <style>
-    .arc, .underline { fill: none; stroke-miterlimit: 10; stroke-width: 3; }
+    .arc, .underline { fill: none; stroke-miterlimit: 10; stroke-width: 4; }
     .initials { font-family: JetBrains Mono, Courier New, monospace; font-size: 48px; }
 
     /* Default fallback, darkmode / no preference detected */

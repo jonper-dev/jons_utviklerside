@@ -29,10 +29,6 @@
   align-items: center;
   width: 100%;
 
-  ul, ol {
-    padding-inline-start: 1.5rem; // Restores natural list indentation.
-  }
-
   // Reverse text/image order for visual alternation between sections.
   &--flip {
     flex-direction: row-reverse;
@@ -73,6 +69,17 @@
 
     &:visited {
       color: var(--color-accent); // This keeps accent color, visited state not so relevant here.
+    }
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.85rem;
+    padding: 1.5rem 0.5rem;
+    gap: 0.5rem;
+
+    a {
+      // Shorten the arrow labels on mobile if needed.
+      font-size: 0.85rem;
     }
   }
 }

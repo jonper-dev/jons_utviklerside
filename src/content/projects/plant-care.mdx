@@ -1,17 +1,109 @@
 ---
-title: "Plantestell-system"
+title: "Smart hjemmesystem for planter"
 summary: "Et IoT-basert hjemmesystem for automatisk plantestell med sensorer, LED-er og Raspberry Pi."
-tech: ["JavaScript", "IoT", "Raspberry Pi"]
+tech: ["JavaScript", "Micro:bit", "IoT", "Agriculture Kit"]
 order: 3
 ---
 
+import Contributors from '../../components/project/Contributors.astro';
 import ProjectSection from '../../components/project/ProjectSection.astro';
 import ProjectImage from '../../components/project/ProjectImage.astro';
 
-## Hva er det
+<ProjectSection title="Prosjektoversikt">
+  <ProjectImage
+    src="/src/assets/images/projects/plant-care/samps_showcased_prototype.png"
+    alt="Planteboks-prototypen med vanningsvarsler LED-er kan ses på bordet, sammen med informasjonsplakater og en skjerm med relatert kode."
+    caption="Figur 1: Den framviste prototypen i «Tingenes web», med informasjonsplakater og kode på skjerm."
+  />
+  Semi-automatiske multi-plantesystem (SAMPS) er et hjemmesystem bygget for planteeiere som er ferske eller har en travel hverdag.
+  Fuktsensorer hjelper til med å si fra når plantene er for tørre, eller for våte.
+  Simple signal LED-er blinker når det er for tørt (lett å få øye på), og lyser jevnt når det er for vått, når man overvanner,
+  så planteeierne passer på å stoppe og lar dem tørke. I tillegg har denne lys på timere,
+  og med tilpasset lysstyrke for planten man velger å legge inn for den potteposisjonen.
+  Slik kontrollerer man lysforhold automatisk, og får påminnelser om vanningsbehov eller overvanning,
+  og plantene har en mye bedre sjans for å klare seg og trives.
 
-## Hvordan ble det laget
+  <p><em>Prosjektets kodearkiv: <a href="https://github.com/jonper-dev/idg3006_samps" target="_blank">https://github.com/jonper-dev/idg3006_samps</a></em></p>
+</ProjectSection>
 
-## Refleksjoner
+<ProjectSection title="Hvordan ble det laget" flip>
+  Prosessen her startet med mange utkast for både prosjekt å velge og tilhørende målgruppe for idéen. Til sist landet vi på noe hverdagslig,
+  og en idé om en prototyp til hjelp for dem med lite erfaring eller en travel hverdag. Den ikke bare hjelper plantene å klare seg,
+  den hjelper brukerne med å få følelsen av hva plantene trenger.
 
-## Fremtidige planer
+  Videre ble det skissert og tegnet prototyper i mer detalj, og etter diskusjoner og presentasjoner for klassen ble designet etterhvert satt.
+  NodeRED ble vurdert for koding, men enklere koding med JavaScript / kodeblokker ble sett på som fordelaktig, og etter Jonas hadde laget et utkast
+  tok jeg over her og fullførte den koden. Med gruppens varierte talenter ble prototypen veldig bra til sist, en unik «blomsterkasse»-utforming
+  med overhengende lampe-arm fra en side. Koblingene ble utført, og varslignene funket så snart vi fant de begrensede posisjonene «pin»-ene av ulike typer kunne kobles til den lille datamaskinen.
+
+  Til sist hadde vi en fin prototyp som gjorde det den skulle uten feil, men vi fikk ikke tid til å implementere brukergrensesnittet,
+  og pga. hardware-mangler måtte vi simulere en klokke heller enn å ha en gående hele tiden. Men det holdt fint til å demonstrere
+  fungererende timere, lysstyrker, og varsellamper som reagerte på jordfuktighet.
+
+  <ProjectImage
+    src="/src/assets/images/projects/plant-care/samps_illustrated_prototype.png"
+    alt="En illustrert prototyp av SAMPS-systemet med tre like planter i firkantede potter. Her vises lysene over som ordner automatisk belysning, og «pålene» på siden var tenkt å være sensorholdere eller varsellampeholdere på det punktet."
+    caption="Figur 2: En illustrert prototyp av SAMPS-systemet. Her vises lysene over som ordner automatisk belysning, og «pålene» på siden var tenkt å være sensorholdere eller varsellampeholdere på det punktet."
+  />
+
+  <ProjectImage
+    src="/src/assets/images/projects/plant-care/samps_showcased_prototype_close-up.jpg"
+    alt="Planteboks-prototypen med vanningsvarsler LED-er kan ses på bordet, her i nærbilde, og man kan se de røde varsel-LED-ene."
+    caption="Figur 3: Den framviste prototypen i «Tingenes web», her i nærbilde hvor man kan se de røde varsel-LED-ene som sier fra om for lav eller høy jordfuktighet."
+  />
+</ProjectSection>
+
+<ProjectSection title="Refleksjoner">
+  Til tross for manglende brukergrensesnitt er jeg svært fornøyd med denne prototypen, den gjorde alt vi ville den skulle gjøre under testing,
+  og konseptet var strålende. Med fungerende hardware for klokkestøttet og et brukergrensesnitt i en app eller på en nettside
+  hadde denne vært perfekt. Et interessant prosjekt som kanskje må besøkes igjen.
+</ProjectSection>
+
+<ProjectSection title="Fremtidige planer" flip>
+  Hjemmesystemet for plantestell hadde litt forbedringer å gå på, da gruppen ble holdt igjen i innsiktsarbeidsfasen lenge:
+  <ul>
+    <li>Lage brukergrensesnitt til nett og koble dette til sensorlogikk.</li>
+    <li>Implementere hardware som har komponentene for ordentlig tidtaking.</li>
+    <li>Mulig database for brukerinformasjon.</li>
+    <li>Lagre listen over planter ett sted i systemtet til raske valg fra en liste.</li>
+    <li>Litt mer vanntette ledninger og komponenter for sikkerhet og robusthet.</li>
+    <li>Skalere opp størrelse for mulighet for større planter.</li>
+  </ul>
+</ProjectSection>
+
+<ProjectSection title="Bidragsytere">
+  <Contributors contributors={[
+    {
+      name: "Cecilie Bekkemellem",
+      role: "Interaksjonsdesigner",
+      links: [
+        { type: "linkedin", url: "https://www.linkedin.com/in/cecilie-bekkemellem-6308103b5/" },
+        { type: "website", url: "https://www.ceciliebekkemellem-ux.com/" }
+      ]
+    },
+    {
+      name: "Kaja Emilie Berg",
+      role: "Webutvikler",
+      links: [
+        { type: "github", url: "https://github.com/git-kaia" },
+        { type: "linkedin", url: "https://www.linkedin.com/in/kaja-emilie-berg-031792395/" }
+      ]
+    },
+    {
+      name: "Liv Marie Nygård",
+      role: "Interaksjonsdesigner",
+      links: [
+        { type: "linkedin", url: "https://www.linkedin.com/in/cecilie-bekkemellem-6308103b5/" },
+        { type: "website", url: "https://www.ceciliebekkemellem-ux.com/" }
+      ]
+    },
+    {
+      name: "Jonas Ingemann Sandbye",
+      role: "Interaksjonsdesigner",
+      links: [
+        { type: "linkedin", url: "https://www.linkedin.com/in/jonas-sandbye-a65310396/" },
+        { type: "website", url: "https://www.jonassandbye.com/" }
+      ]
+    }
+  ]} />
+</ProjectSection>

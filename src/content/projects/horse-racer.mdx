@@ -10,7 +10,7 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
 
 <ProjectSection title="Prosjektoversikt">
   <ProjectImage
-    src="/src/assets/images/projects/pai-chatbot/pai_chatbot_finalized_version_response.png"
+    src="/src/assets/images/projects/horse-racer/horse-racer_game_old.png"
     alt=""
     caption="Figur 1: Hesteløpsspillet i bruk."
   />
@@ -19,7 +19,16 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
 </ProjectSection>
 
 <ProjectSection title="Hvordan ble det laget" flip>
+  Hestespillet var en obligatorisk oppgave, og å splitte komponentene var noe vi måtte gjøre.
+  I mitt spill er det da en JavaScript-fil som holder rede på hvor hesten er, en annen som holder rede på banen
+  og sjekker med tilsendt informasjon når hesten (eller en hest) er over mållinjen.
+  Spillet har en nedtelling før løpet starter, og man kan pause og resette spillet både under denne og selve løpet.
 
+  Bonusfunksjonalitet er en «Mario Kart»-stil «gummistrikk»-effekt, der de som er lenger bak i feltet
+  har bedre odds for å gå langt per trykk, for å oppnå spenning med et jevnt felt.
+  I tillegg er det en slags midlertidig animasjon jeg har implementert bak hestene,
+  vind/støv virvler opp bak dem i kort tid etter tastetrykk. Hester som er i mål «danser» eller gynger litt når man trykker
+  på knappen etter å ha kommet i mål, som både er en litt artig responsivitet, og allikevel hindrer dem i å løpe ut av banen.
 </ProjectSection>
 
 <ProjectSection title="Refleksjoner">
@@ -31,8 +40,14 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
   <ul>
     <li>Gjøre det om til React-basert frontend.</li>
     <li>Legge til en hovedmeny før spillet.</li>
-    <li>Lage en spillplatform med flere spill vist som kort, der hesteløpsspilllet er et av disse.</li>
+    <li>Lage en spillplatform med flere spill vist som kort, der hesteløpsspillet er et av disse.</li>
     <li>Bedre spillogikk: En variabel som holder lengden løpt, så hestene blir plassert på rett sted til og med om skjermstørrelsen forandres underveis i løpet.</li>
-    <li></li>
+    <li>Bakgrunnsterreng som seiler forbi, gjerne lagvis for en «parallakse»-effektt.</li>
+    <li>Datamaskin motsandere som løper av seg selv.</li>
+    <li>Bedre/alternativt spill, med trykk på rette knappen av fire fortest mulig istedenfor å trykke på én så fort som mulig.</li>
   </ul>
+</ProjectSection>
+
+<ProjectSection title="Bidragsytere">
+  Dette var et individuelt prosjekt, dog jeg hentet litt inspirasjon fra underviser Carlos, samt noen medstudenter, Eirik, Mia og Kaja.
 </ProjectSection>
