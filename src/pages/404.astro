@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { base } from '../utils/base';
 ---
 
 <BaseLayout title="Side ikke funnet">
@@ -8,7 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="content-column">
         <h2>404</h2>
         <p>Siden du leter etter finnes ikke, eller har blitt flyttet.<span class="cursor">_</span></p>
-        <a href="/">← Tilbake til forsiden</a>
+        <a href={`${base}/`}>← Tilbake til forsiden</a>
       </div>
     </section>
   </article>

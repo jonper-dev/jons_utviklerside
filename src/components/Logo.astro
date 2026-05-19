@@ -2,9 +2,10 @@
 // Site logo component with hover animation on the circle arc.
 // Displays correct color version based on current theme via data-theme attribute.
 // Arc draws on hover using stroke-dashoffset animation.
+import { base } from '../utils/base';
 ---
 
-<a href="/" class="site-logo" aria-label="Hjem">
+<a href={`${base}/`} class="site-logo" aria-label="Hjem">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="505 245 235 240" class="logo-svg">
     <g id="jp_logo_group">
       <path

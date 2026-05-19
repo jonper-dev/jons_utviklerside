@@ -2,6 +2,7 @@
 import Hero from "../components/Hero.astro";
 import TechList from '../components/TechList.astro';
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { base } from '../utils/base';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
@@ -34,7 +35,7 @@ const projects = (await getCollection('projects'))
         <h3>{project.data.title}</h3>
         <p>{project.data.summary}</p>
         <TechList tech={project.data.tech} />
-        <a href={`/projects/${project.id}`} class="card-link">Les mer →</a>
+        <a href={`${base}/projects/${project.id}`} class="card-link">Les mer →</a>
       </section>
     ))}
   </article>

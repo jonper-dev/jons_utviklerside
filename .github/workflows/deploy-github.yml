@@ -27,6 +27,4 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
-      - name: List dist contents
-        run: ls -la dist/
       - uses: actions/deploy-pages@v4

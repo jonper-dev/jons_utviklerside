@@ -5,6 +5,7 @@ import "../assets/styles/global.css";
 import Logo from "../components/Logo.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import Lightbox from "../components/project/Lightbox.astro";
+import { base } from '../utils/base';
 
 // Font imports
 import "@fontsource/dm-sans/400.css"; // Regular (header-font)
@@ -25,10 +26,10 @@ const siteName = "Jons utviklerhjørne";
 const fullTitle = `${siteName} – ${title}`;
 
 const navLinks = [
-  { href: "/", label: "Hjem" },
-  { href: "/about", label: "Om meg" },
-  { href: "/projects", label: "Prosjekter" },
-  { href: "/contact", label: "Kontakt" },
+  { href: `${base}/`,         label: 'Hjem'        },
+  { href: `${base}/about`,    label: 'Om meg'      },
+  { href: `${base}/projects`, label: 'Prosjekter'  },
+  { href: `${base}/contact`,  label: 'Kontakt'     },
 ];
 
 function isActive(href: string) {
@@ -99,7 +100,7 @@ function isActive(href: string) {
     </main>
     <footer>
       <div class="content-column">
-        <p>© {new Date().getFullYear()} Jon Petter Ervik – <a href="/contact">Kontakt</a></p>
+        <p>© {new Date().getFullYear()} Jon Petter Ervik – <a href={`${base}/contact`}>Kontakt</a></p>
         <p>NTNU i Gjøvik | Webutvikling</p>
       </div>
     </footer>
