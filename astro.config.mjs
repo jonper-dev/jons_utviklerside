@@ -10,6 +10,7 @@ export default defineConfig({
     ? 'https://jonper-dev.github.io'
     : 'https://jpervik.no',
   base: isGithubPages ? '/jons_utviklerside' : '/',
+  trailingSlash: 'always',
   server: {
     open: false
   }
