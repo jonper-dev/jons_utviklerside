@@ -9,7 +9,7 @@ export default defineConfig({
   site: isGithubPages
     ? 'https://jonper-dev.github.io'
     : 'https://jpervik.no',
-  base: isGithubPages ? '/your-repo-name' : '/',
+  base: isGithubPages ? '/jons_utviklerside' : '/',
   server: {
     open: false
   }
