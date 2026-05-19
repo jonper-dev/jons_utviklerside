@@ -1,46 +1,32 @@
-# Astro Starter Kit: Basics
+# Jon's developer corner
+A personal developer portfolio and project site built to present my projects, background and contact information.
 
-```sh
-npm create astro@latest -- --template basics
-```
+## About
+Utviklerkroken ("The Developer's Corner") is my personal corner of the web, a place to document and present the projects I have worked on, what I have learned from them, and who I am as a developer. The site is written primarily in Norwegian.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Built with
+* **Astro** — static site generator with file-based routing and content collections
+* **TypeScript** — type safety throughout components and utilities
+* **SCSS** — modular styling with BEM conventions, CSS custom properties for theming
+* **MDX** — project pages written in Markdown with Astro component support
 
-## 🚀 Project Structure
+## Features
+* Light, dark and system theme switching with a three-position slider
+* Scroll-triggered reveal animations with reduced motion support
+* Typewriter effect on the hero section
+* SVG logo with hover draw animation and blinking underline
+* Adaptive favicon following system color preference
+* Project pages with scrollytelling layout, image lightbox and contributor credits
+* Tech stack tags with auto-resolved Simple Icons logos
+* Content collections for structured project data
 
-Inside of your Astro project, you'll see the following folders and files:
+## Design
+The site uses a warm sans-serif and serif font pairing (DM Sans and Lora) with JetBrains Mono for code and technical elements. The terminal/typewriter aesthetic runs as a thread through the logo, hero section and navigation — blinking underlines, monospace fonts and a draw-on-hover arc animation.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Projects documented
+* **PAI Chatbot** — a pedagogical AI chatbot built as a bachelor project (MERN stack, Claude API)
+* **Horse Racer** — a browser-based horse racing game built with web components
+* **Plantestell-system** — a web of things home plant-care system using JavaScript and Micro:bit
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Deployment
+The site is deployed to GitHub Pages via GitHub Actions on push to main, and also hosted at [jpervik.no](https://jpervik.no).
