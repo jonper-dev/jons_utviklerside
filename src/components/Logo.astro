@@ -1,0 +1,44 @@
+---
+// Site logo component with hover animation on the circle arc.
+// Displays correct color version based on current theme via data-theme attribute.
+// Arc draws on hover using stroke-dashoffset animation.
+---
+
+<a href="/" class="site-logo" aria-label="Hjem">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="505 245 235 240" class="logo-svg">
+    <g id="jp_logo_group">
+      <path
+        id="circle-arc"
+        class="logo-arc"
+        d="M659.38,280.41c34.85,7.68,63.04,33.45,73.82,67.46,16.57,52.3-12.84,108.96-65.14,125.53-52.3,16.57-108.96-12.84-125.53-65.14"
+        fill="none"
+        stroke-miterlimit="10"
+        stroke-width="4"
+      />
+      <text
+        id="initials"
+        class="logo-initials"
+        transform="translate(590.69 386.59)"
+        font-family="JetBrainsMono-Regular, 'JetBrains Mono', monospace"
+        font-size="48"
+      ><tspan x="0" y="0">jp</tspan></text>
+      <path
+        id="underline"
+        class="logo-underline"
+        d="M651.11,391.43h23.1"
+        fill="none"
+        stroke-miterlimit="10"
+        stroke-width="4"
+      />
+    </g>
+  </svg>
+</a>
+
+<script>
+  // Measure arc length on load and set as CSS custom property for dash animation.
+  const arc = document.querySelector<SVGPathElement>('#circle-arc');
+  if (arc) {
+    const length = arc.getTotalLength();
+    arc.style.setProperty('--arc-length', `${length}`);
+  }
+</script>

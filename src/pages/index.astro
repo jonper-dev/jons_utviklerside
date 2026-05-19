@@ -1,5 +1,6 @@
 ---
 import Hero from "../components/Hero.astro";
+import TechList from '../components/TechList.astro';
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from 'astro:content';
 
@@ -11,34 +12,30 @@ const projects = (await getCollection('projects'))
 ---
 
 <BaseLayout title="Hjem">
-  <main>
-    <article class="intro-article">
-      <section>
-        <Hero />
-        <div class="content-column">
-          <h2>Introduksjon</h2>
-          <p>
-            Velkommen til min hjemmeside, her finner du informasjon om meg og et
-            utvalg av mine prosjekter.
-          </p>
-        </div>
-      </section>
-    </article>
-
-    <article class="projects-article">
-      <div class="content-column--full">
-        <h2>Prosjekter</h2>
+  <article class="intro-article">
+    <section>
+      <Hero />
+      <div class="content-column">
+        <h2>Introduksjon</h2>
+        <p>
+          Velkommen til min hjemmeside, her finner du informasjon om meg og et
+          utvalg av mine prosjekter.
+        </p>
       </div>
-      {projects.map(project => (
-        <section class="project-card">
-          <h3>{project.data.title}</h3>
-          <p>{project.data.summary}</p>
-          <ul class="tech-list">
-            {project.data.tech.map(t => <li>{t}</li>)}
-          </ul>
-          <a href={`/projects/${project.id}`} class="card-link">Les mer →</a>
-        </section>
-      ))}
-    </article>
-  </main>
+    </section>
+  </article>
+
+  <article class="projects-article">
+    <div class="content-column--full">
+      <h2>Prosjekter</h2>
+    </div>
+    {projects.map(project => (
+      <section class="project-card">
+        <h3>{project.data.title}</h3>
+        <p>{project.data.summary}</p>
+        <TechList tech={project.data.tech} />
+        <a href={`/projects/${project.id}`} class="card-link">Les mer →</a>
+      </section>
+    ))}
+  </article>
 </BaseLayout>

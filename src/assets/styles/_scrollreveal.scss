@@ -7,8 +7,8 @@
 .scroll-reveal {
   opacity: 0;
   transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+    opacity 1.2s ease,
+    transform 1.2s ease;
   transition-delay: var(--delay, 0ms);
 
   // Directional starting offsets.
@@ -16,13 +16,15 @@
   &[data-direction="left"]  { transform: translateX(-24px); }
   &[data-direction="right"] { transform: translateX(24px); }
 
-  // Revealed state — transition to natural position.
+  // Revealed state
+  // Transition to natural position.
   &.revealed {
     opacity: 1;
     transform: none;
   }
 
-  // Respect reduced motion — skip animation, reveal immediately.
+  // Respect reduced motion
+  // Skip animation, reveal immediately.
   @media (prefers-reduced-motion: reduce) {
     transition: none;
     opacity: 1;

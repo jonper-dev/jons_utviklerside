@@ -1,7 +1,7 @@
 {
   "name": "jons_utviklerside",
   "type": "module",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,9 +13,11 @@
     "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/lora": "^5.2.8",
-    "astro": "^6.0.8"
+    "astro": "^6.0.8",
+    "simple-icons": "^16.20.0"
   },
   "devDependencies": {
+    "@types/node": "^25.9.0",
     "sass-embedded": "^1.98.0"
   }
 }

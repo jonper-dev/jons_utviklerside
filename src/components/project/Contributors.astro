@@ -1,0 +1,67 @@
+---
+// Displays a list of project contributors with links to their profiles.
+// Supports github, linkedin and website link types with matching icons.
+// LinkedIn uses a text badge fallback due to icon unavailability.
+import { getPlatformIconUrl } from '../../utils/techIcons';
+
+interface ContributorLink {
+  type: 'github' | 'linkedin' | 'website';
+  url: string;
+  label?: string;
+}
+
+interface Contributor {
+  name: string;
+  role?: string;
+  links: ContributorLink[];
+}
+
+interface Props {
+  contributors: Contributor[];
+}
+
+const { contributors } = Astro.props;
+
+const processed = contributors.map(contributor => ({
+  ...contributor,
+  processedLinks: contributor.links.map(profileLink => ({
+    url: profileLink.url,
+    type: profileLink.type,
+    label: profileLink.label ?? profileLink.type,
+    iconUrl: getPlatformIconUrl(profileLink.type),
+    useTextBadge: getPlatformIconUrl(profileLink.type) === '',
+    ariaLabel: contributor.name + ' på ' + profileLink.type,
+  }))
+}));
+---
+
+<div class="contributors">
+  <ul class="contributors__list">
+    {processed.map(contributor => (
+      <li class="contributor">
+        <span class="contributor__name">{contributor.name}</span>
+        {contributor.role && (
+          <span class="contributor__role">{contributor.role}</span>
+        )}
+        <span class="contributor__links">
+          {contributor.processedLinks.map(pl => {
+            return (
+              <a
+                href={pl.url}
+                class="contributor__link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={pl.ariaLabel}
+              >
+                {pl.useTextBadge
+                  ? <span class="contributor__text-badge">{pl.type}</span>
+                  : <img src={pl.iconUrl} alt={pl.label} class="contributor__icon" width="16" height="16" aria-hidden="true" />
+                }
+              </a>
+            );
+          })}
+        </span>
+      </li>
+    ))}
+  </ul>
+</div>

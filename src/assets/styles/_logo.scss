@@ -1,0 +1,63 @@
+// ###############################
+// ### Site logo and animation ###
+// ###############################
+.site-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-svg {
+  width: 64px;
+  height: 64px;
+}
+
+// Color switching based on data-theme on <html>.
+[data-theme="light"] {
+  .logo-arc,
+  .logo-underline     { stroke: #000; }
+  .logo-initials      { fill: #000; }
+}
+
+[data-theme="dark"] {
+  .logo-arc,
+  .logo-underline     { stroke: #fff; }
+  .logo-initials      { fill: #fff; }
+}
+
+// Arc draws in on hover, hidden by default.
+.logo-arc {
+  stroke-dasharray: var(--arc-length, 400);
+  stroke-dashoffset: var(--arc-length, 400); // fully hidden by default
+  transition: stroke-dashoffset 0.6s ease;
+
+  .site-logo:hover & {
+    stroke-dashoffset: 0; // fully drawn on hover
+  }
+}
+
+// Underline blink animation, always active.
+.logo-underline {
+  animation: logo-blink var(--blink-duration) step-start infinite;
+}
+
+@keyframes logo-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+// Respect reduced motion.
+@media (prefers-reduced-motion: reduce) {
+  .logo-arc {
+    stroke-dashoffset: var(--arc-length, 400); // still starts hidden
+    transition: stroke-dashoffset 2.5s ease; // much slower instead of instant
+
+    .site-logo:hover & {
+      stroke-dashoffset: 0;
+    }
+  }
+  .logo-underline {
+    animation: logo-blink calc(var(--blink-duration) * 3) step-start infinite;
+  }
+}

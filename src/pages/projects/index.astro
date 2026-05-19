@@ -1,4 +1,5 @@
 ---
+import TechList from '../../components/TechList.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -7,29 +8,40 @@ const projects = (await getCollection('projects'))
 ---
 
 <BaseLayout title="Prosjekter">
-  <main>
-    <article class="intro-article">
-      <section>
+  <article class="intro-article">
+    <section>
+      <div class="content-column">
+        <h2>Prosjekter</h2>
+        <p>
+          Med denne mappen håper jeg å vise en allsidighet med tre ganske forskjellig fokuserte prosjekter,
+          et med akademisk forskningsfokus, et lett underholdningsprosjekt,
+          og et hjemmesystemprosjekt ment å gjøre hverdagen lettere for folk.
+          I tillegg er prosjektene henholdsvis MERN-stack (MongoDB, Express, React, Node) prosjekt,
+          HTML/CSS/JavaScript med webkomponenter og JavaScript/IoT («Internet of Things»),
+          og utviklersiden min som omfavner prosjektene er et Astro-prosjekt,
+          som jeg håper også støtter opp under å vise et nokså bredt spekter som webutvikler.
+        </p>
+
+        <p>
+          Videre håper jeg det skinner gjennom at jeg også er opptatt av litt «hverdagslige» ting,
+          som spill/hobby, samt å gjøre hverdagslige ting (som plantestell, matlaging, osv.) litt enklere, som prosjekt 2 og 3 viser.
+          Andre prosjekter jeg også vurderte å inkludere var en oppskriftsside, samt en enkel, tråd-basert sosial media, som også har litt denne fokusen.
+          Til sist kan jeg nevne at prosjektene mine også er valgt fordi det er prosjekter jeg liker selv.
+        </p>
+      </div>
+    </section>
+  </article>
+
+  <article class="projects-article">
+    {projects.map(project => (
+      <section class="project-card">
         <div class="content-column">
-          <h2>Prosjekter</h2>
-          <p>Et utvalg av prosjektene mine.</p>
+          <h3>{project.data.title}</h3>
+          <p>{project.data.summary}</p>
+          <TechList tech={project.data.tech} />
+          <a href={`/projects/${project.id}`}>Les mer →</a>
         </div>
       </section>
-    </article>
-
-    <article class="projects-article">
-      {projects.map(project => (
-        <section class="project-card">
-          <div class="content-column">
-            <h3>{project.data.title}</h3>
-            <p>{project.data.summary}</p>
-            <ul class="tech-list">
-              {project.data.tech.map(t => <li>{t}</li>)}
-            </ul>
-            <a href={`/projects/${project.id}`}>Les mer →</a>
-          </div>
-        </section>
-      ))}
-    </article>
-  </main>
+    ))}
+  </article>
 </BaseLayout>

@@ -1,0 +1,32 @@
+---
+// Renders a list of tech tags with auto-resolved Simple Icons logos.
+// Icon mapping and CDN resolution handled by src/utils/techIcons.ts.
+import { getTechIconUrl } from '../utils/techIcons';
+
+interface Props {
+  tech: string[];
+}
+const { tech } = Astro.props;
+---
+
+<ul class="tech-list">
+  {tech.map(t => {
+    const iconUrl = getTechIconUrl(t);
+    return (
+      <li>
+        {iconUrl && (
+          <img
+            src={iconUrl}
+            alt=""
+            class="tech-icon"
+            data-tech={t}
+            width="14"
+            height="14"
+            aria-hidden="true"
+          />
+        )}
+        {t}
+      </li>
+    );
+  })}
+</ul>

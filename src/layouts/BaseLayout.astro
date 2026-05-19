@@ -2,7 +2,9 @@
 // BaseLayout.astro
 // Imports at the BaseLayout level are applied for imports that are reused on every page. – Jon
 import "../assets/styles/global.css";
+import Logo from "../components/Logo.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import Lightbox from "../components/project/Lightbox.astro";
 
 // Font imports
 import "@fontsource/dm-sans/400.css"; // Regular (header-font)
@@ -24,6 +26,7 @@ const fullTitle = `${siteName} – ${title}`;
 
 const navLinks = [
   { href: "/", label: "Hjem" },
+  { href: "/about", label: "Om meg" },
   { href: "/projects", label: "Prosjekter" },
   { href: "/contact", label: "Kontakt" },
 ];
@@ -39,7 +42,7 @@ function isActive(href: string) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- <link rel="icon" href="/favicon.ico" /> -->
     <title>{fullTitle}</title>
 
@@ -67,10 +70,7 @@ function isActive(href: string) {
   </head>
   <body>
     <header>
-      <h1>
-        <span class="site-name">{siteName}</span>
-        <span class="page-name"> – {title}</span>
-      </h1>
+      <Logo />
       <nav>
         <ul>
           {
@@ -89,6 +89,19 @@ function isActive(href: string) {
       </nav>
       <ThemeToggle />
     </header>
-    <slot />
+    <main>
+      <h1>
+        <span class="site-name">{siteName}</span>
+        <span class="page-name"> – {title}</span>
+      </h1>
+      <Lightbox />
+      <slot />
+    </main>
+    <footer>
+      <div class="content-column">
+        <p>© {new Date().getFullYear()} Jon Petter Ervik – <a href="/contact">Kontakt</a></p>
+        <p>NTNU i Gjøvik | Webutvikling</p>
+      </div>
+    </footer>
   </body>
 </html>

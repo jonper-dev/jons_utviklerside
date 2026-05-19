@@ -21,6 +21,10 @@ code, pre {
 }
 
 // Lora italic is worth using deliberately. 
-em, cite {
+em, cite, figcaption {
   font-style: italic;
+}
+
+figcaption {
+  font-size: small;
 }

@@ -2,7 +2,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 
-const isProd = process.env.NODE_ENV === 'production';
 const isGithubPages = process.env.DEPLOY_TARGET === 'github';
 
 export default defineConfig({
@@ -10,7 +9,7 @@ export default defineConfig({
   site: isGithubPages
     ? 'https://jonper-dev.github.io'
     : 'https://jpervik.no',
-  base: isGithubPages ? '/jons_utviklerside' : '/',
+  base: isGithubPages ? '/your-repo-name' : '/',
   server: {
     open: false
   }

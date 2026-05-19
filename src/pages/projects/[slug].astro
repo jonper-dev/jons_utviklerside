@@ -25,27 +25,25 @@ const next = allProjects[currentIndex + 1] ?? null;
 ---
 
 <BaseLayout title={project.data.title}>
-  <main>
-    <article class="intro-article">
+  <article class="intro-article">
 
-      <ProjectHero
-        title={project.data.title}
-        summary={project.data.summary}
-        tech={project.data.tech}
-      />
+    <ProjectHero
+      title={project.data.title}
+      summary={project.data.summary}
+      tech={project.data.tech}
+    />
 
-      <Content />
+    <Content />
 
-    </article>
+  </article>
 
-    <nav class="project-nav" aria-label="Prosjektnavigasjon">
-      <div>
-        {prev && <a href={`/projects/${prev.id}`}>← {prev.data.title}</a>}
-      </div>
-      <a href="/projects">Alle prosjekter</a>
-      <div>
-        {next && <a href={`/projects/${next.id}`}>{next.data.title} →</a>}
-      </div>
-    </nav>
-  </main>
+  <nav class="project-nav" aria-label="Prosjektnavigasjon">
+    <div>
+      {prev && <a href={`/projects/${prev.id}`}>← {prev.data.title}</a>}
+    </div>
+    <a href="/projects">Alle prosjekter</a>
+    <div>
+      {next && <a href={`/projects/${next.id}`}>{next.data.title} →</a>}
+    </div>
+  </nav>
 </BaseLayout>
