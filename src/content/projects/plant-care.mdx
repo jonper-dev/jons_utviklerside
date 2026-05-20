@@ -1,11 +1,13 @@
 ---
 title: "Smart hjemmesystem for planter"
-summary: "Et IoT-basert hjemmesystem for automatisk plantestell med sensorer, LED-er og Raspberry Pi."
+summary: "Et IoT-basert hjemmesystem for hjelp til plantestell med sensorer, signal- og plantelys-LED-er,
+          styrt av en Micro:bit-maskin på et ledningskort."
 tech: ["JavaScript", "Micro:bit", "IoT", "Agriculture Kit"]
 order: 3
 ---
 
 import Contributors from '../../components/project/Contributors.astro';
+import ExternalLink from '../../components/ExternalLink.astro';
 import ProjectSection from '../../components/project/ProjectSection.astro';
 import ProjectImage from '../../components/project/ProjectImage.astro';
 
@@ -15,15 +17,18 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
     alt="Planteboks-prototypen med vanningsvarsler LED-er kan ses på bordet, sammen med informasjonsplakater og en skjerm med relatert kode."
     caption="Figur 1: Den framviste prototypen i «Tingenes web», med informasjonsplakater og kode på skjerm."
   />
-  Semi-automatiske multi-plantesystem (SAMPS) er et hjemmesystem bygget for planteeiere som er ferske eller har en travel hverdag.
-  Fuktsensorer hjelper til med å si fra når plantene er for tørre, eller for våte.
-  Simple signal LED-er blinker når det er for tørt (lett å få øye på), og lyser jevnt når det er for vått, når man overvanner,
-  så planteeierne passer på å stoppe og lar dem tørke. I tillegg har denne lys på timere,
-  og med tilpasset lysstyrke for planten man velger å legge inn for den potteposisjonen.
-  Slik kontrollerer man lysforhold automatisk, og får påminnelser om vanningsbehov eller overvanning,
-  og plantene har en mye bedre sjans for å klare seg og trives.
+  Semi-automatisk multi-plantesystem (SAMPS) er et hjemmesystem bygget for planteeiere
+  som er uerfarne og/eller har en travel hverdag. Fuktsensorer hjelper til med å si fra når
+  plantene er for tørre, eller for våte.
+  Enkle signal-<abbr title="lysemitterende diode / light-emitting diode">LED</abbr>-er blinker
+  når det er for tørt (lett å få øye på), og lyser jevnt når det er for vått eller man overvanner,
+  så planteeierne passer på å stoppe og å la det tørke.
+  I tillegg har denne lys på timere, og med tilpasset lysstyrke for
+  planten man velger å legge inn for den potteposisjonen.
+  Slik kontrollerer man lysforhold automatisk, man får påminnelser om vanningsbehov eller overvanning,
+  og slik har plantene har en mye bedre sjans for å klare seg og trives.
 
-  <p><em>Prosjektets kodearkiv: <a href="https://github.com/jonper-dev/idg3006_samps" target="_blank">https://github.com/jonper-dev/idg3006_samps</a></em></p>
+  <p><em>Prosjektets kodearkiv: <ExternalLink href="https://github.com/jonper-dev/idg3006_samps" label="github.com/jonper-dev/idg3006_samps" /></em></p>
 </ProjectSection>
 
 <ProjectSection title="Hvordan ble det laget" flip>
@@ -65,7 +70,7 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
     <li>Lage brukergrensesnitt til nett og koble dette til sensorlogikk.</li>
     <li>Implementere hardware som har komponentene for ordentlig tidtaking.</li>
     <li>Mulig database for brukerinformasjon.</li>
-    <li>Lagre listen over planter ett sted i systemtet til raske valg fra en liste.</li>
+    <li>Lagre listen over planter ett sted i systemtet, slik at de raskt skal kunne velges for den spesifikke potten fra en liste.</li>
     <li>Litt mer vanntette ledninger og komponenter for sikkerhet og robusthet.</li>
     <li>Skalere opp størrelse for mulighet for større planter.</li>
   </ul>

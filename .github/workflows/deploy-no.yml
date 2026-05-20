@@ -5,6 +5,12 @@ name: Build for .no domain
 #     branches: [main]
 
 ## Manual trigger only, uncomment above when deployment ready.
+
+## This deployment file probably won't be needed, as it will be built locally,
+## then uploaded to the .no-domain via an FTP-client.
+## This "File Transfer Protocol" will let me upload files to my own .no-domain-folders.
+## Leaving this YAML-file here anyways,
+## as there might be a future use for automated deployment. – Jon
 on:
   workflow_dispatch:
 

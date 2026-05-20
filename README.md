@@ -2,7 +2,9 @@
 A personal developer portfolio and project site built to present my projects, background and contact information.
 
 ## About
-Utviklerkroken ("The Developer's Corner") is my personal corner of the web, a place to document and present the projects I have worked on, what I have learned from them, and who I am as a developer. The site is written primarily in Norwegian.
+"Jons utviklerhjørne" ("Jon's developer corner") is my personal corner of the web,
+a place where I document and present the projects I have worked on, what I have learned from them,
+and who I am as a developer. The site is written primarily in Norwegian.
 
 ## Built with
 * **Astro** — static site generator with file-based routing and content collections
@@ -24,9 +26,11 @@ Utviklerkroken ("The Developer's Corner") is my personal corner of the web, a pl
 The site uses a warm sans-serif and serif font pairing (DM Sans and Lora) with JetBrains Mono for code and technical elements. The terminal/typewriter aesthetic runs as a thread through the logo, hero section and navigation — blinking underlines, monospace fonts and a draw-on-hover arc animation.
 
 ## Projects documented
-* **PAI Chatbot** — a pedagogical AI chatbot built as a bachelor project (MERN stack, Claude API)
-* **Horse Racer** — a browser-based horse racing game built with web components
-* **Plantestell-system** — a web of things home plant-care system using JavaScript and Micro:bit
+* **PAI chatbot** — a pedagogical AI chatbot built as a bachelor project (MERN stack, Claude API).
+* **Horse Race** — a browser-based horse racing game built with web components.
+* **Smart home-system for plants** — a web of things home plant-care system using JavaScript and Micro:bit.
 
 ## Deployment
-The site is deployed to GitHub Pages via GitHub Actions on push to main, and also hosted at [jpervik.no](https://jpervik.no).
+The site is deployed to GitHub Pages via GitHub Actions on push to main.
+It can be found here: [jonper-dev.github.io/jons_utviklerside/](https://jonper-dev.github.io/jons_utviklerside/)
+It's also hosted here: [jpervik.no](https://jpervik.no).

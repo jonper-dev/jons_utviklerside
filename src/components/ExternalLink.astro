@@ -1,0 +1,13 @@
+---
+// ############################################################################
+// ### Reusable component for opening external links correctly (in new tab) ###
+// ############################################################################
+// This is needed because of the JSX-syntax used by the MDX-files,
+// here standard HTML is not enough to make the links behave right. – Jon
+interface Props {
+  href: string;
+  label?: string;
+}
+const { href, label } = Astro.props;
+---
+<a href={href} target="_blank" rel="noopener noreferrer">{label ?? href}</a>
