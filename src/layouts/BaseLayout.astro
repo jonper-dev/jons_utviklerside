@@ -26,10 +26,10 @@ const siteName = "Jons utviklerhjørne";
 const fullTitle = `${siteName} – ${title}`;
 
 const navLinks = [
-  { href: `${base}/`,         label: 'Hjem'        },
-  { href: `${base}/about`,    label: 'Om meg'      },
-  { href: `${base}/projects`, label: 'Prosjekter'  },
-  { href: `${base}/contact`,  label: 'Kontakt'     },
+  { href: `${base}/`,         label: 'Hjem' },
+  { href: `${base}/about`,    label: 'Om meg' },
+  { href: `${base}/projects`, label: 'Prosjekter' },
+  { href: `${base}/contact`,  label: 'Kontakt' },
 ];
 
 // More explicit isActive-function to separate the homepage from the other pages when they're the ones active.
@@ -106,7 +106,7 @@ function isActive(href: string) {
     </main>
     <footer>
       <div class="content-column">
-        <p>© {new Date().getFullYear()} Jon Petter Ervik – <a href={`${base}/contact`}>Kontakt</a></p>
+        <p>©&nbsp;{new Date().getFullYear()} Jon Petter Ervik – <a href={`${base}/contact`}>Kontakt</a></p>
         <p>NTNU i Gjøvik | Webutvikling</p>
       </div>
     </footer>

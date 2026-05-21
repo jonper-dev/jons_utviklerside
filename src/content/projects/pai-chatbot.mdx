@@ -27,7 +27,7 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
   og også en Anthropic API-tilknytning for å benytte seg av Anthropics Claude Sonnet modell.
   Denne er laget med pedagogikk, brukertesting og akademisk forskning i tankene.
   Oppdragsgiveren for dette prosjektet var <abbr title="Human-Centered AI">HCAI</abbr>-labben
-  ved NTNU i Gjøviks Institutt for design.
+  ved NTNU i Gjøviks Institutt for design, som ønsket å utforske KI-assistenter for studenter.
   
   <p><em>Prosjektets kodearkiv: <ExternalLink href="https://github.com/Falkebr/pai-chatbot" label="github.com/Falkebr/pai-chatbot" /></em></p>
 </ProjectSection>
@@ -35,7 +35,7 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
 <ProjectSection title="Hvordan ble det laget" flip>
   Bachelorgruppe 16 ønsket å utforme et verktøy på bakgrunn av brukerinnsikt fra en relevant gruppe,
   så anonyme prototypintervjuer ble utført på NTNU i Gjøviks studenter innenfor kodebaserte fag
-  (i vårt tilfelle ble det webutvikling, cybersikkerhet og informasjonsteknologier).
+  (i vårt tilfelle ble det webutvikling, cybersikkerhet og informasjonssikkerhet).
   Ønsket om et verktøy der funksjonalitet og det viktigste står i senter ble funnet ved hjelp av sorterte intervjudata på Figma.
   Dette ble sortert via MoSCoW-metoden, og gruppen implementerte «Must have»-funksjonene
   og de fleste av «Should have»-funksjonene.
@@ -58,15 +58,15 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
   og en visuell prototyp for login og samtaleside ble laget (både i lys- og mørk modus),
   og etter avstemming landet vi på litt varme, «pedagogiske» farger for designet.
   Dette ble så implementert av webutviklerne i <abbr title="Visual Studio Code">VSCode</abbr>,
-  og ryddig oppsatt ved hjelp av pull requests i VSCode.
+  og ryddig oppsatt ved hjelp av «commits» og «pull requests» via VSCode/GitHub.
   Etter hovedfunksjonaliteten var satt opp som et MERN-stack prosjekt som brukte et lokalt Ollama-program ble det gradvis iterert,
   først med såkalte «prompt suggestions», som er ferdiglagde «prompts» brukerne kan trykke på for forhåpentligvis
   å redusere kognitiv belastning og interaksjonskostnad, som teoretisk sett kan være godt for læring.
-  Senere ved at løsningen måtte skaleres for flere brukere, mer praktisk oppsett og bedre KI-modeller,
-  så gruppen gikk over til å bruke Anthropics Claude Sonnet
+  Etterhvert som løsningen måtte skaleres for flere brukere, mer praktisk oppsett og bedre KI-modeller,
+  gikk gruppen over til å bruke Anthropics Claude Sonnet modell
   (tidligere hadde vi kjørt diverse modeller som var tilgjengelige i Ollama, blant annet Qwen).
   Videre ble designet forbedret, funksjonalitetene finpusset,
-  og designet ble mer responsivt og ryddig med tanke på chat-formattering.
+  og nettsiden ble mer responsiv og ryddig med tanke på chat-formattering.
 
   <ProjectImage
     src="/src/assets/images/projects/pai-chatbot/pai_chatbot_mid-development_lightmode.png"

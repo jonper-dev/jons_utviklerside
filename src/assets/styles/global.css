@@ -349,9 +349,6 @@ figcaption {
   .site-logo:hover .logo-arc {
     stroke-dashoffset: 0;
   }
-  .logo-underline {
-    animation: logo-blink calc(var(--blink-duration) * 3) step-start infinite;
-  }
 }
 [data-theme=light] .tech-icon[data-tech=JavaScript] {
   filter: invert(40%) sepia(64%) saturate(800%) hue-rotate(195deg) brightness(80%);
@@ -533,6 +530,11 @@ html, body {
   --blink-duration: 1s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --blink-duration: 2s;
+  }
+}
 body {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -622,11 +624,6 @@ header nav ul li a:visited {
   }
   50% {
     border-bottom-color: transparent;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  header nav ul li a header nav ul li a:hover {
-    animation: nav-blink calc(var(--blink-duration) * 3) step-start infinite;
   }
 }
 

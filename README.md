@@ -6,11 +6,24 @@ A personal developer portfolio and project site built to present my projects, ba
 a place where I document and present the projects I have worked on, what I have learned from them,
 and who I am as a developer. The site is written primarily in Norwegian.
 
+## Features
+* Light, dark and system theme switching with a three-position slider
+* Scroll-triggered reveal animations with reduced motion support
+* Typewriter effect on the hero section
+* SVG logo with hover draw animation and blinking underline
+* Adaptive favicon following system color preference
+* Project pages with scrollytelling layout, image lightbox and contributor credits
+* Tech stack tags with auto-resolved Simple Icons logos
+* Content collections for structured project data
+
 ## Built with
 * **Astro** — static site generator with file-based routing and content collections
 * **TypeScript** — type safety throughout components and utilities
 * **SCSS** — modular styling with BEM conventions, CSS custom properties for theming
 * **MDX** — project pages written in Markdown with Astro component support
+
+## Design
+The site uses a warm sans-serif and serif font pairing (DM Sans and Lora) with JetBrains Mono for code and technical elements. The terminal/typewriter aesthetic runs as a thread through the logo, hero section and navigation — blinking underlines, monospace fonts and a draw-on-hover arc animation.
 
 ## Project structure
 ```
@@ -23,19 +36,6 @@ src/
 └── utils/          # Shared TypeScript utilities
 ```
 
-## Features
-* Light, dark and system theme switching with a three-position slider
-* Scroll-triggered reveal animations with reduced motion support
-* Typewriter effect on the hero section
-* SVG logo with hover draw animation and blinking underline
-* Adaptive favicon following system color preference
-* Project pages with scrollytelling layout, image lightbox and contributor credits
-* Tech stack tags with auto-resolved Simple Icons logos
-* Content collections for structured project data
-
-## Design
-The site uses a warm sans-serif and serif font pairing (DM Sans and Lora) with JetBrains Mono for code and technical elements. The terminal/typewriter aesthetic runs as a thread through the logo, hero section and navigation — blinking underlines, monospace fonts and a draw-on-hover arc animation.
-
 ## Projects documented
 * **PAI chatbot** — a pedagogical AI chatbot built as a bachelor project (MERN stack, Claude API).
 * **Horse Race** — a browser-based horse racing game built with web components.
@@ -44,6 +44,7 @@ The site uses a warm sans-serif and serif font pairing (DM Sans and Lora) with J
 ## Deployment
 The site is deployed to GitHub Pages via GitHub Actions on push to main.
 It can be found here: [jonper-dev.github.io/jons_utviklerside/](https://jonper-dev.github.io/jons_utviklerside/)
+
 It's also hosted here: [jpervik.no](https://jpervik.no).
 
 ## License
@@ -52,7 +53,13 @@ The code in this project is licensed under the [MIT license](LICENSE) — you ar
 
 The content — including text, images, own logo and project descriptions — is copyrighted Jon Petter Ervik, ©&nbsp;2026. All rights reserved.
 
+Some content related to group projects, including images and project materials,
+is jointly owned by the respective project groups or their individual members, and is used here with their knowledge.
+
 ### Norwegian language
 Koden i dette prosjektet er lisensiert under [MIT-lisensen](LICENSE) – du står fritt til å bruke, endre og distribuere den.
 
 Innholdet – inkludert tekst, bilder, egen logo og prosjektbeskrivelser – er opphavsrettslig beskyttet Jon Petter Ervik, ©&nbsp;2026. Alle rettigheter forbeholdt.
+
+Noe innhold relatert til gruppeprosjekter, inkludert bilder og prosjektmateriale,
+eies i fellesskap av de respektive prosjektgruppene eller deres individuelle medlemmer, og brukes her med deres kjennskap.
