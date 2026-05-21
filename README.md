@@ -12,7 +12,7 @@ and who I am as a developer. The site is written primarily in Norwegian.
 * **SCSS** — modular styling with BEM conventions, CSS custom properties for theming
 * **MDX** — project pages written in Markdown with Astro component support
 
-## Project Structure
+## Project structure
 ```
 src/
 ├── assets/         # Fonts, images, icons and global SCSS partials
