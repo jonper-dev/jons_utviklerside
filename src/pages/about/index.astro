@@ -17,7 +17,7 @@ const siteTech = ['Astro', 'TypeScript', 'SCSS', 'JavaScript', 'GitHub'];
       <div class="content-column">
         <h2>Om meg</h2>
         <p>
-          Jeg heter Jon Petter, og er en 34 åring fra Jugendbyen, Ålesund.
+          Jeg heter Jon Petter, og er en 34 åring fra «jugendbyen», Ålesund.
           De siste tre årene har jeg studert webutvikling ved NTNU i Gjøvik.
           Studiet passet meg godt da jeg alltid har vært interessert i teknologi, data og internett
           siden jeg ble kjent med disse for lenge siden.
@@ -51,19 +51,19 @@ const siteTech = ['Astro', 'TypeScript', 'SCSS', 'JavaScript', 'GitHub'];
         </p>
       </div>
       <div class="interests">
-      <div class="interest">
-        <img src={cookingIcon.src} alt="" class="interest-icon" aria-hidden="true" />
-        <span>Mat og matlaging</span>
+        <div class="interest">
+          <img src={cookingIcon.src} alt="" class="interest-icon" aria-hidden="true" />
+          <span>Mat og matlaging</span>
+        </div>
+        <div class="interest">
+          <img src={computerIcon.src} alt="" class="interest-icon" aria-hidden="true" />
+          <span>Spill og programmering</span>
+        </div>
+        <div class="interest">
+          <img src={dumbbellIcon.src} alt="" class="interest-icon" aria-hidden="true" />
+          <span>Vektløfting og trening</span>
+        </div>
       </div>
-      <div class="interest">
-        <img src={computerIcon.src} alt="" class="interest-icon" aria-hidden="true" />
-        <span>Spill og programmering</span>
-      </div>
-      <div class="interest">
-        <img src={dumbbellIcon.src} alt="" class="interest-icon" aria-hidden="true" />
-        <span>Vektløfting og trening</span>
-      </div>
-    </div>
     </section>
   </article>
 
@@ -80,7 +80,9 @@ const siteTech = ['Astro', 'TypeScript', 'SCSS', 'JavaScript', 'GitHub'];
         <p>
           Til tross for all denne litt mer avanserte funksjonaliteten, har jeg også forsøkt å få inn semantiske elementer og tilgjengelighet innenfor dette rammeverket,
           og det viste seg at Astros MDX-filbaserte prosjektsystem omgjorde fra MDX-filene til semantiske HTML-elementer på en ryddig måte.
-          Videre har siden støtte for preferanser for redusert bevegelse, den er relativt responsiv,
+          Astro er også veldig raskt for statiske nettsteder some dette, det var et godt valg her.
+          Jeg kan varmt anbefale det til andre som bygger statiske nettsider som ikke oppdateres ofte.
+          Videre kan jeg nevne siden støtte for preferanser for redusert bevegelse, den er relativt responsiv,
           og Lightbox/dialog benyttes for en ryddig presentasjon av bilder og bildetekst når disse ønskes forstørret ved klikk.
         </p>
       </div>
@@ -99,9 +101,17 @@ const siteTech = ['Astro', 'TypeScript', 'SCSS', 'JavaScript', 'GitHub'];
         <ul>
           <li>Gruppemedlemmene mine for å hjelpe meg å lage prosjektene, både de som er her og andre prosjekter.</li>
           <li>NTNU og dets undervisere for å lære og framheve ting på en måte man ikke kan lære på egenhånd, hverken fra bøker, internett eller KI.</li>
-          <li><a href="https://simpleicons.org/">Simple Icons</a> for teknologi-ikonene brukt til å vise både prosjekteknologier, samt bidragsyteres lenker.</li>
-          <li><a href="https://www.svgrepo.com/">SVG Repo</a> for enkle vektorer brukt i interesse-seksjonen.</li>
-          <li>Anthropics <a href="https://claude.ai">Claude chatbot</a> for hjelp med noe av den mer avanserte funksjonaliteten.</li>
+          <li>Skriftfamilier brukt:
+            <ul>
+              <li>DM Sans (overskrifter), designet av Colophon Foundry.</li>
+              <li>Lora (brødskrift), designet av Cyreal.</li>
+              <li>JetBrains Mono (kode, logo), designet av JetBrains.</li>
+            </ul>
+          </li>
+          <li>Egen logo og fane-ikon er laget av meg i Adobe Illustrator. Bruker også ovennevnte JetBrains Mono for initialene.</li>
+          <li><a href="https://simpleicons.org/" target="_blank" rel="noopener noreferrer">Simple Icons</a> for teknologi-ikonene brukt til å vise både prosjekteknologier, samt bidragsyteres lenker.</li>
+          <li><a href="https://www.svgrepo.com/" target="_blank" rel="noopener noreferrer">SVG Repo</a> for enkle vektorer brukt i interesse-seksjonen.</li>
+          <li>Anthropics <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">Claude chatbot</a> for hjelp med noe av den mer avanserte funksjonaliteten.</li>
         </ul>
       </div>
     </section>

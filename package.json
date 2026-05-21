@@ -2,6 +2,16 @@
   "name": "jons_utviklerside",
   "type": "module",
   "version": "1.0.0",
+  "description": "Personal developer portfolio built with Astro, TypeScript and SCSS.",
+  "keywords": [
+    "portfolio",
+    "astro",
+    "typescript",
+    "scss",
+    "personal-site"
+  ],
+  "author": "Jon P. Ervik",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
