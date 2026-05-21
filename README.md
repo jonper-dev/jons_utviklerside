@@ -12,6 +12,17 @@ and who I am as a developer. The site is written primarily in Norwegian.
 * **SCSS** — modular styling with BEM conventions, CSS custom properties for theming
 * **MDX** — project pages written in Markdown with Astro component support
 
+## Project Structure
+```
+src/
+├── assets/         # Fonts, images, icons and global SCSS partials
+├── components/     # Reusable Astro components including project-specific ones
+├── content/        # MDX project pages and content collection config
+├── layouts/        # Base layout with header, footer and theme handling
+├── pages/          # File-based routing. One file per route.
+└── utils/          # Shared TypeScript utilities
+```
+
 ## Features
 * Light, dark and system theme switching with a three-position slider
 * Scroll-triggered reveal animations with reduced motion support
@@ -34,3 +45,14 @@ The site uses a warm sans-serif and serif font pairing (DM Sans and Lora) with J
 The site is deployed to GitHub Pages via GitHub Actions on push to main.
 It can be found here: [jonper-dev.github.io/jons_utviklerside/](https://jonper-dev.github.io/jons_utviklerside/)
 It's also hosted here: [jpervik.no](https://jpervik.no).
+
+## License
+### English language
+The code in this project is licensed under the [MIT license](LICENSE) — you are free to use, modify and distribute it.
+
+The content — including text, images, own logo and project descriptions — is copyrighted Jon Petter Ervik, ©&nbsp;2026. All rights reserved.
+
+### Norwegian language
+Koden i dette prosjektet er lisensiert under [MIT-lisensen](LICENSE) – du står fritt til å bruke, endre og distribuere den.
+
+Innholdet – inkludert tekst, bilder, egen logo og prosjektbeskrivelser – er opphavsrettslig beskyttet Jon Petter Ervik, ©&nbsp;2026. Alle rettigheter forbeholdt.
