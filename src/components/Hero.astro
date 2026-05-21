@@ -34,10 +34,10 @@
 
   // Animation speeds, and setting dependent reduced speeds.
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const TYPE_SPEED = prefersReduced ? 150 : 80;
-  const DELETE_SPEED = prefersReduced ? 80 : 40;
-  const PAUSE_AFTER_TYPE = prefersReduced ? 4000 : 1800;
-  const PAUSE_AFTER_DELETE = prefersReduced ? 1000 : 400;
+  const TYPE_SPEED = prefersReduced ? 120 : 40;
+  const DELETE_SPEED = prefersReduced ? 60 : 20;
+  const PAUSE_AFTER_TYPE = prefersReduced ? 3600 : 1800;
+  const PAUSE_AFTER_DELETE = prefersReduced ? 800 : 400;
   
   function tick() {
     const current = phrases[phraseIndex];
