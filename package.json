@@ -1,7 +1,7 @@
 {
   "name": "jons_utviklerside",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Personal developer portfolio built with Astro, TypeScript and SCSS.",
   "keywords": [
     "portfolio",

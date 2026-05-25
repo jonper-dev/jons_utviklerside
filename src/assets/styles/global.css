@@ -349,9 +349,6 @@ figcaption {
   .site-logo:hover .logo-arc {
     stroke-dashoffset: 0;
   }
-  .logo-underline {
-    animation: logo-blink calc(var(--blink-duration) * 3) step-start infinite;
-  }
 }
 [data-theme=light] .tech-icon[data-tech=JavaScript] {
   filter: invert(40%) sepia(64%) saturate(800%) hue-rotate(195deg) brightness(80%);
