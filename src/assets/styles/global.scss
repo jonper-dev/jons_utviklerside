@@ -41,6 +41,12 @@ html, body {
   --blink-duration: 1s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --blink-duration: 3s; // Slower blink globally, affects all elements using this variable.
+  }
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -136,13 +142,7 @@ header {
 
           @keyframes nav-blink {
             0%, 100% { border-bottom-color: var(--color-accent); }
-            50%       { border-bottom-color: transparent; }
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            header nav ul li a:hover {
-              animation: nav-blink calc(var(--blink-duration) * 3) step-start infinite;
-            }
+            50% { border-bottom-color: transparent; }
           }
         }
       }
