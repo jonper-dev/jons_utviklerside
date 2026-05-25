@@ -530,6 +530,11 @@ html, body {
   --blink-duration: 1s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --blink-duration: 3s;
+  }
+}
 body {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -619,11 +624,6 @@ header nav ul li a:visited {
   }
   50% {
     border-bottom-color: transparent;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  header nav ul li a header nav ul li a:hover {
-    animation: nav-blink calc(var(--blink-duration) * 3) step-start infinite;
   }
 }
 
