@@ -1,17 +1,21 @@
 // ###########################################
 // ### Color variables / Token definitions ###
 // ###########################################
-$dark-background:  #1e1e1e;
-$dark-text:        #faebd7; // Antiquewhite as hex, more explicit.
-$dark-surface:     #2a2a2a; // E.g. cards, code blocks.
-$dark-accent:      #7aa2f7;
-$dark-muted:       #888888;
+$dark-background:   #1e1e1e;
+$dark-text:         #faebd7; // Antiquewhite as hex, more explicit.
+$dark-surface:      #2a2a2a; // E.g. cards, code blocks.
+$dark-accent:       #7aa2f7;
+$dark-muted:        #888888;
+$dark-link:         #7aa2f7; // Same as accent, visible on dark background.
+$dark-link-visited: #b09ae8; // Muted purple, distinct but not jarring.
 
-$light-background: #faebd7; // Antiquewhite as hex, more explicit.
-$light-text:       #111111;
-$light-surface:    #f0e6d3;
-$light-accent:     #2563eb;
-$light-muted:      #676767;
+$light-background:  #faebd7; // Antiquewhite as hex, more explicit.
+$light-text:        #111111;
+$light-surface:     #f0e6d3;
+$light-accent:      #2563eb;
+$light-muted:       #676767;
+$light-link:        #2563eb; // Same as accent, visible on light background.
+$light-link-visited:#7c3aed; // Muted purple for light background.
 
 
 
@@ -24,8 +28,8 @@ $light-muted:      #676767;
   --color-surface:      #{$dark-surface};
   --color-accent:       #{$dark-accent};
   --color-muted:        #{$dark-muted};
-  --color-link:         #7aa2f7;      // Same as accent, visible on dark background.
-  --color-link-visited: #b09ae8;      // Muted purple, distinct but not jarring.
+  --color-link:         #{$dark-link};
+  --color-link-visited: #{$dark-link-visited};
 }
 
 [data-theme="light"] {
@@ -34,6 +38,6 @@ $light-muted:      #676767;
   --color-surface:      #{$light-surface};
   --color-accent:       #{$light-accent};
   --color-muted:        #{$light-muted};
-  --color-link:         #2563eb;      // Same as accent, visible on light background
-  --color-link-visited: #7c3aed;      // Muted purple for light background
+  --color-link:         #{$light-link};
+  --color-link-visited: #{$light-link-visited};
 }
