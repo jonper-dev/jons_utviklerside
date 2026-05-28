@@ -1,17 +1,19 @@
 ---
 // Personal profile links with platform icons for the about page.
+import { base } from '../utils/base';
 import { getPlatformIconUrl } from '../utils/techIcons';
 
 interface PersonalLink {
   type: 'github' | 'linkedin' | 'website';
   url: string;
   label: string;
+  internal?: boolean;
 }
 
 const links: PersonalLink[] = [
-  { type: 'github', url: 'https://github.com/jonper-dev',       label: 'Min GitHub' },
-  { type: 'linkedin', url: 'https://linkedin.com/in/jpervik',   label: 'Min LinkedIn' },
-  { type: 'website', url: 'https://jpervik.no',                 label: 'Min hjemmeside' },
+  { type: 'github', url: 'https://github.com/jonper-dev',     label: 'Min GitHub' },
+  { type: 'linkedin', url: 'https://linkedin.com/in/jpervik', label: 'Min LinkedIn' },
+  { type: 'website', url: `${base}/`,                         label: 'Min hjemmeside', internal: true },
 ];
 ---
 
@@ -21,8 +23,7 @@ const links: PersonalLink[] = [
       <a
         href={pl.url}
         class="personal-links__link"
-        target="_blank"
-        rel="me noopener noreferrer"
+        {...(!pl.internal && { target: '_blank', rel: 'me noopener noreferrer' })}
         aria-label={pl.label}
       >
         {getPlatformIconUrl(pl.type)
