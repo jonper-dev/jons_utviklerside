@@ -28,7 +28,7 @@
 body {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -51,7 +51,8 @@ em, cite, figcaption {
 }
 
 figcaption {
-  font-size: small;
+  font-size: 0.875rem;
+  color: var(--color-muted);
 }
 
 .project-card {
@@ -161,8 +162,8 @@ figcaption {
   font-size: 0.7rem;
   padding: 0.1rem 0.3rem;
   border-radius: 3px;
-  border: 1px solid var(--color-muted);
-  color: var(--color-muted);
+  border: 1px solid var(--color-link);
+  color: var(--color-link);
   text-transform: lowercase;
   line-height: 1;
 }
@@ -181,7 +182,7 @@ figcaption {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--color-accent);
+  color: var(--color-link);
   text-decoration: none;
   font-family: var(--font-heading);
   font-size: 0.95rem;
@@ -190,7 +191,7 @@ figcaption {
   opacity: 0.8;
 }
 .personal-links__link:visited {
-  color: var(--color-accent);
+  color: var(--color-link-visited);
 }
 .personal-links__icon {
   width: 20px;
@@ -423,9 +424,6 @@ figcaption {
   margin-block-end: 1.5rem;
 }
 .project-figure figcaption {
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  font-style: italic;
   text-align: center;
 }
 
@@ -538,8 +536,6 @@ html, body {
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
 }
 
 a {
@@ -646,6 +642,8 @@ main {
   flex-direction: column;
   flex-wrap: wrap;
   margin-top: 100px;
+  min-height: calc(90vh - 100px);
+  min-height: calc(90dvh - 100px);
   width: 96%;
 }
 @media screen and (max-width: 460px) {
@@ -728,10 +726,10 @@ footer {
   text-align: center;
 }
 footer a {
-  color: var(--color-accent);
+  color: var(--color-link);
 }
 footer a:visited {
-  color: var(--color-accent);
+  color: var(--color-link-visited);
 }
 footer p {
   margin: 4px auto;
