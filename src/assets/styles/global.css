@@ -72,6 +72,16 @@ figcaption {
   margin-top: auto;
   align-self: flex-start;
   color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.project-card .card-link:hover {
+  text-decoration: underline;
+}
+.project-card .card-link:visited {
+  color: var(--color-accent);
 }
 
 .tech-list {

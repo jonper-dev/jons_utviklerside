@@ -36,12 +36,10 @@ const projects = (await getCollection('projects'))
   <article class="projects-article">
     {projects.map(project => (
       <section class="project-card">
-        <div class="content-column">
-          <h3>{project.data.title}</h3>
-          <p>{project.data.summary}</p>
-          <TechList tech={project.data.tech} />
-          <a href={`${base}/projects/${project.id}`}>Les mer →</a>
-        </div>
+        <h3>{project.data.title}</h3>
+        <p>{project.data.summary}</p>
+        <TechList tech={project.data.tech} />
+        <a href={`${base}/projects/${project.id}`} class="card-link">Les mer →</a>
       </section>
     ))}
   </article>

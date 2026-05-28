@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  flex: 1 1 280px; // grows and shrinks, minimum 280px before wrapping
+  flex: 1 1 280px; // Grows and shrinks, minimum 280px before wrapping.
   max-width: 400px;
 
   h3 {
@@ -13,9 +13,22 @@
   }
 
   .card-link {
-    margin-top: auto; // pushes link to bottom of card regardless of content height
+    margin-top: auto; // Pushes link to bottom of card regardless of content height.
     align-self: flex-start;
     color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    // Signals interactivity on hover, makes primary content links "stand out". – Jon
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: var(--color-accent); // Keep accent, ignore visited state.
+    }
   }
 }
 
