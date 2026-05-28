@@ -1,7 +1,7 @@
 body {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +17,7 @@ h3, h4, h5, h6 {
 
 code, pre {
   font-family: var(--font-mono);
-  font-size: 0.9em; // For this em not rem is used, which scales relative to surrounding text.
+  font-size: 0.9em;           // For this em not rem is used, which scales relative to surrounding text.
 }
 
 // Lora italic is worth using deliberately. 
@@ -26,5 +26,6 @@ em, cite, figcaption {
 }
 
 figcaption {
-  font-size: small;
+  font-size: 0.875rem;        // More predictable, ~14px at default root size.
+  color: var(--color-muted);  // Worth having globally.
 }

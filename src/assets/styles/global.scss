@@ -43,15 +43,13 @@ html, body {
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --blink-duration: 3s; // Slower blink globally, affects all elements using this variable.
+    --blink-duration: 2s; // Slower blink globally, affects all elements using this variable.
   }
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
 }
 
 a {
@@ -177,6 +175,8 @@ main {
   flex-wrap: wrap;
   margin-top: 100px; // Intended to match header height. Overwrites the top-direction from the general setting.
   // padding: 1rem;
+  min-height: calc(90vh - 100px);  // Fallback from "dvh" for older browsers.
+  min-height: calc(90dvh - 100px); // Dynamic view height minus the above extra margin. Ensures good footer placement. – Jon
   width: 96%;
 
   @media screen and (max-width: 460px) {
@@ -268,10 +268,10 @@ footer {
   text-align: center;
 
   a {
-    color: var(--color-accent);
+    color: var(--color-link);
 
     &:visited {
-      color: var(--color-accent);
+      color: var(--color-link-visited);
     }
   }
 
