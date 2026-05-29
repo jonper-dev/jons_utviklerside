@@ -6,8 +6,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  line-height: 1.2;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 // Slightly lighter weight for smaller headings
@@ -26,6 +26,6 @@ em, cite, figcaption {
 }
 
 figcaption {
-  font-size: 0.875rem;        // More predictable, ~14px at default root size.
   color: var(--color-muted);  // Worth having globally.
+  font-size: 0.875rem;        // More predictable, ~14px at default root size.
 }
