@@ -19,7 +19,7 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
   />
   
   Semi-automatisk multi-plantesystem (SAMPS) er et <abbr title="Internet of Things">IoT</abbr>-hjemmesystem bygget for planteeiere
-  som er uerfarne og/eller har en travel hverdag. Fuktsensorer hjelper til med å si fra når
+  som er uerfarne og / eller har en travel hverdag. Fuktsensorer hjelper til med å si fra når
   plantene er for tørre, eller for våte.
   Enkle signal-<abbr title="lysemitterende diode / light-emitting diode">LED</abbr>-er blinker
   når det er for tørt (lett å få øye på), og lyser jevnt når det er for vått eller man overvanner,
@@ -39,9 +39,13 @@ import ProjectImage from '../../components/project/ProjectImage.astro';
 
   Videre ble det skissert og tegnet prototyper i mer detalj, og etter diskusjoner og presentasjoner for klassen ble designet etterhvert satt.
   Node-RED ble vurdert for koding, men enklere koding med JavaScript / kodeblokker ble sett på som fordelaktig, og etter Jonas hadde laget et utkast
-  tok jeg over her og fullførte den koden. Med gruppens varierte talenter ble prototypen veldig bra til sist, en unik «blomsterkasse»-utforming
-  med overhengende lampe-arm fra en side.
-  Koblingene ble utført, og varslingene funket så snart vi fant de begrensede posisjonene «pin»-ene av ulike typer kunne kobles til den lille datamaskinen.
+  tok jeg over her og fullførte den koden. Designet ble laget av gruppens mer designsterke medlemmer,
+  og boksens «karosseri» og arm ble kuttet ut med lasertkutter, så satt sammen.
+  Med gruppens varierte talenter ble prototypen veldig bra til sist.
+  Den har en unik «blomsterkasse»-utforming med overhengende lampe-arm fra én side.
+  Koblingene ble utført, og varslingene funket så snart vi fant de begrensede posisjonene ledningene
+  kunne kobles til «pin»-ene på ledningskortet med den lille Micro:bit-datamaskinen.
+  Dette var fordi disse «pin»-ene var delt mellom diverse digitale og analoge varianter, med ulike bruksområder.
 
   Til sist hadde vi en fin prototyp som gjorde det den skulle uten feil, men vi fikk ikke tid til å implementere brukergrensesnittet,
   og pga. hardware-mangler måtte vi simulere en klokke per økt heller enn å ha en «ekte» klokke gående hele tiden. Men det holdt fint til å demonstrere
