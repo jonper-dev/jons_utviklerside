@@ -13,10 +13,10 @@
   --color-background: #faebd7;
   --color-text: #111111;
   --color-surface: #f0e6d3;
-  --color-accent: #2563eb;
+  --color-accent: #1d4ed8;
   --color-muted: #676767;
-  --color-link: #2563eb;
-  --color-link-visited: #7c3aed;
+  --color-link: #1d4ed8;
+  --color-link-visited: #5b21b6;
 }
 
 :root {
